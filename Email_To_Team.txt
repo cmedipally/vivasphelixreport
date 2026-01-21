@@ -1,0 +1,47 @@
+Subject: SharePoint & Viva Content Analysis - Interactive Dashboard
+
+Hi Team,
+
+I've created an interactive dashboard to help us prepare for the upcoming SharePoint and Viva product refresh (launching in 30 days).
+
+📊 WHAT'S INSIDE:
+- Analysis of 8,865 documentation assets
+- 4-tier prioritization framework (297 pages to update)
+- Visual breakdowns by theme, content type, product, platform
+- Focus on high-traffic, stale, or low-CSAT content
+
+🚀 HOW TO ACCESS:
+1. Open the attached file: SharePoint_Viva_Interactive_Dashboard.html
+2. Works in any browser (Chrome, Edge, Firefox)
+3. No login required, works offline
+
+📋 WHAT YOU CAN DO:
+- View priority tiers (click to expand each section)
+- See top 10 pages that need updating (13M+ views on #1 page!)
+- Explore content distribution by theme, type, freshness
+- Review breakdown by product area and writers
+- Access export file information
+
+🎯 KEY FINDINGS:
+✓ 87% of content is over 1 year old
+✓ Top 50 pages capture 50% of all traffic
+✓ 50 pages have 0 CSAT scores (user pain points)
+✓ Updating 297 pages will reach 55% of users
+
+📁 DATA FILES:
+All CSV files are available at: C:\Users\cmedipally\
+- Tier1_Critical_Update.csv (50 pages)
+- Tier2_High_Priority.csv (50 pages)
+- Tier3_Low_CSAT.csv (50 pages)
+- Tier4_Strategic.csv (147 pages)
+- Top100_Overall_Priorities.csv (master list)
+
+💡 COMING SOON:
+I'm also setting up an interactive Claude for Work project where you can ask questions about the data. More details to follow!
+
+Questions? Let me know!
+
+[Your Name]
+
+---
+Attachment: SharePoint_Viva_Interactive_Dashboard.html

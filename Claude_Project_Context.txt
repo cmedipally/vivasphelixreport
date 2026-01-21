@@ -1,0 +1,315 @@
+# SharePoint & Viva Content Analysis - Project Context
+## Dataset: 8,865 Documentation Assets (January 2026)
+
+---
+
+## EXECUTIVE SUMMARY
+
+**Challenge:** Major SharePoint and Viva product refresh launching in 30 days. Documentation is critically outdated.
+
+**Dataset Stats:**
+- Total assets: 8,865
+- Products: SharePoint (7,578), Viva (1,285)
+- Platforms: LMC Git (56%), SMC C3 (44%)
+- Average age: 1,111 days (3+ years)
+- 87% over 1 year old
+- Average CSAT: 47/100
+
+**Solution:** Update 297 high-impact pages (3.3% of content) to reach 55% of users
+
+---
+
+## 4-TIER PRIORITIZATION FRAMEWORK
+
+### TIER 1: CRITICAL (50 pages)
+- Traffic Impact: 49.6%
+- Average Age: 409 days
+- Focus: High-traffic pages
+- Timeline: Weeks 1-2
+- Team: 4 writers
+
+**Top 10 Pages:**
+1. Sign in to SharePoint - 12,976,493 impressions, 288 days old, CSAT 43
+2. Sharing files, folders, and list items - 4,131,558 impressions, 461 days old, CSAT 51
+3. Create and use modern pages - 2,579,931 impressions, 468 days old, CSAT 52
+4. Troubleshooting issues in SharePoint - 1,967,376 impressions, 260 days old, CSAT 42
+5. What is a SharePoint team site? - 1,893,428 impressions, 275 days old, CSAT 59
+6. List and library column types - 1,165,835 impressions, 504 days old, CSAT 42
+7. View, edit, and add page details - 1,163,387 impressions, 391 days old, CSAT 44
+8. Get started with SharePoint - 1,150,784 impressions, 349 days old, CSAT 48
+9. Create and share news - 1,097,812 impressions, 439 days old, CSAT 58
+10. SharePoint help - 847,940 impressions, 414 days old, CSAT 46
+
+### TIER 2: HIGH PRIORITY (50 pages)
+- Traffic Impact: 0.47%
+- Average Age: 2,170 days (6 years)
+- Focus: IT Pro/Admin content
+- Timeline: Weeks 3-4
+- Team: 2 writers + SME
+
+Focus: SharePoint Server admin, PowerShell cmdlets, hybrid configs, migrations
+
+### TIER 3: USER SATISFACTION (50 pages)
+- Traffic Impact: 0.87%
+- Average CSAT: 0/100 (critical)
+- Focus: Pages with 0 CSAT scores
+- Timeline: Week 5
+- Team: 2 writers + support analyst
+
+These pages have reasonable traffic but users are actively dissatisfied.
+
+### TIER 4: STRATEGIC (147 pages)
+- Traffic Impact: 4.2%
+- Average Age: 1,621 days
+- Focus: Get Started, Landing pages, Navigation
+- Timeline: Week 6
+- Team: 3 writers + strategist
+
+Entry points that set user expectations for the refresh.
+
+---
+
+## KEY METRICS BY DIMENSION
+
+### By Publishing Platform
+- LMC Git: 4,997 pages (56%), avg 1,789 days old, 2% fresh
+- SMC C3: 3,866 pages (44%), avg 1,456 days old, 1.6% fresh
+
+### By Product
+- SharePoint: 7,578 pages (85.5%), 93% stale, avg CSAT 45
+- Viva: 1,285 pages (14.5%), 50% stale, avg CSAT 52
+
+### By Content Type (Top 10)
+1. Reference: 3,099 pages (35%), avg 823 days old, CSAT 45.6
+2. How To: 1,356 pages (15.3%), avg 449 days old, CSAT 43.1
+3. Troubleshooting: 969 pages (10.9%), avg 1,151 days old, CSAT 26.5
+4. how-to: 920 pages (10.4%), avg 1,284 days old, CSAT 55.7
+5. Update: 706 pages (8%), CSAT 47.1
+6. article: 507 pages (5.7%), avg 1,767 days old, CSAT 56.6
+7. concept-article: 256 pages (2.9%), avg 930 days old, CSAT 73.3
+8. Training: 133 pages (1.5%), avg 390 days old, CSAT 53.6
+9. install-set-up-deploy: 132 pages (1.5%), avg 1,215 days old, CSAT 55.8
+10. overview: 79 pages (0.9%), avg 2,176 days old, CSAT 60.5
+
+### By Theme (Top 15)
+1. powershell: 2,251 pages (25.4%), avg 1,570 days old, CSAT 48.7
+2. Updates: 1,626 pages (18.3%), avg 372 days old, CSAT 37.7
+3. sharepoint: 1,578 pages (17.8%), avg 1,966 days old, CSAT 41.4
+4. viva: 879 pages (9.9%), avg 570 days old, CSAT 65.1
+5. microsoft-365: 243 pages (2.7%), avg 284 days old, CSAT 45.7
+6. SharePoint lists and libraries: 173 pages (2%), avg 403 days old, CSAT 41.4
+7. Formulas and functions: 129 pages (1.5%), CSAT 46
+8. Viva Engage: 93 pages (1%), avg 521 days old, CSAT 43.9
+9. File management: 73 pages (0.8%), avg 423 days old, CSAT 35.3
+10. SharePoint sites: 71 pages (0.8%), avg 436 days old, CSAT 42.5
+11. SharePoint pages: 65 pages (0.7%), avg 379 days old, CSAT 45.3
+12. Get started: 59 pages (0.7%), avg 313 days old, CSAT 43.6
+13. Accessibility: 55 pages (0.6%), CSAT 41
+14. Search: 54 pages (0.6%), avg 433 days old, CSAT 39.3
+15. SharePoint web parts: 51 pages (0.6%), avg 445 days old, CSAT 41.8
+
+### By Product Area
+1. SharePoint in Microsoft 365: 3,833 pages (43.2%)
+2. SharePoint Server: 3,333 pages (37.6%)
+3. Viva Engage: 300 pages (3.4%)
+4. Viva Glint: 259 pages (2.9%)
+5. Document processing for M365: 217 pages (2.5%)
+6. Viva Insights: 192 pages (2.2%)
+7. Stream in SharePoint: 149 pages (1.7%)
+8. Viva Suite/Admin: 148 pages (1.7%)
+9. Viva Goals: 141 pages (1.6%)
+10. Viva Learning: 91 pages (1%)
+
+### By Git Repository (Top 10)
+1. officedocs-sharepoint-powershell: 2,251 pages (25.4%)
+2. officedocs-sharepoint-pr: 1,210 pages (13.7%)
+3. gp.smc.microsoft-365: 1,165 pages (13.1%)
+4. gp.smc.hotfix.office: 1,100 pages (12.4%)
+5. viva-pr: 852 pages (9.6%)
+6. gp.smc.security.office: 435 pages (4.9%)
+7. officedocs-support-pr: 397 pages (4.5%)
+8. gp.smc.officeupdates: 312 pages (3.5%)
+9. microsoft-365-docs-pr: 240 pages (2.7%)
+10. gp.smc.viva: 195 pages (2.2%)
+
+### Top Writers (by asset count)
+1. dcscontentpm@microsoft.com: 1,362 pages (15.4%)
+2. ruihu@microsoft.com: 1,204 pages (13.6%)
+3. pamgreen: 1,097 pages (12.4%)
+4. speedta: 1,032 pages (11.6%)
+5. serdars: 860 pages (9.7%)
+(185 unique writers total)
+
+### Accuracy Review Status
+- > 365 days (stale): 7,689 pages (86.7%)
+- 271-365 days: 467 pages (5.3%)
+- 181-270 days: 269 pages (3%)
+- 91-180 days: 277 pages (3.1%)
+- 0-90 days (fresh): 161 pages (1.8%)
+- Never reviewed: 4,911 pages (55.4%)
+
+---
+
+## THEME-BASED PRIORITY SCORING
+
+Impact Score = (Total Traffic % × 1000) + (Avg Days Since Review / 100)
+
+1. Sign in: 152.2
+2. sharepoint: 139.7
+3. SharePoint lists and libraries: 94.0
+4. Collaborate and share: 74.1
+5. SharePoint pages: 73.8
+6. File management: 54.2
+7. viva: 45.7
+8. SharePoint sites: 44.4
+9. Templates: 33.6
+10. Get started: 33.1
+
+---
+
+## CONTENT TYPE PRIORITY SCORING
+
+1. How To: 524.5 (HIGHEST - procedural content affected by UI changes)
+2. how-to: 82.8 (HIGH - consolidate with How To)
+3. Troubleshooting: 61.5 (HIGH - users are blocked)
+4. Navigation: 44.7 (STRATEGIC - entry points)
+5. Reference: 38.2 (MEDIUM - less UI-dependent)
+
+---
+
+## VIVA-SPECIFIC PRIORITIES
+
+Top 20 Viva Pages by Priority Score:
+1. Schedule send in Outlook: 808,094 impressions, 420 days old, CSAT 63
+2. Viva Glint FAQs: 720,695 impressions, 321 days old, CSAT 78
+3. Sign in to Viva Engage: 471,386 impressions, 69 days old, CSAT 50
+4. Manage Viva Engage notifications: 289,589 impressions, 44 days old, CSAT 39
+5. Connect to Copilot Dashboard: 223,253 impressions, 5 days old, CSAT 41
+6. Add Viva Engage Community to Favorites: 204,779 impressions, 370 days old, CSAT 73
+7. Use Viva Insights in Outlook: 186,680 impressions, 498 days old, CSAT 49
+8. Install Viva Engage desktop app: 167,214 impressions, 135 days old, CSAT 61
+9. Get started with Viva Engage: 142,207 impressions, 105 days old, CSAT 62
+10. Manage a community in Viva Engage: 121,619 impressions, 334 days old, CSAT 59
+
+---
+
+## SHAREPOINT-SPECIFIC PRIORITIES
+
+Content Focus Areas by Theme:
+1. Authentication & Sign-in (13M+ impressions) - New identity flows
+2. Sharing & Collaboration (4M+ impressions) - Permission model changes
+3. Modern Pages & Sites (2.6M+ impressions) - Complete UI refresh
+4. Lists & Libraries (1.2M+ impressions) - Enhanced capabilities
+5. File Management (600K+ impressions each) - Sync and access workflows
+
+---
+
+## DATA QUALITY ISSUES
+
+1. Missing Review Data: 55% have no review date (4,911 pages)
+2. Missing Review Owners: 89% have no LastReviewedBy (7,894 pages)
+3. Low CSAT Coverage: 71% lack CSAT scores (6,255 pages)
+4. Very Low NLQS Coverage: 99% lack NLQS scores (8,752 pages)
+5. Missing OCV Link Feedback: 56% lack this data (4,999 pages)
+6. Missing Collections: 68% not categorized (6,021 pages)
+7. Missing SubProductTag: 98% not tagged (8,683 pages)
+8. Missing Theme: 13% lack theme classification (1,152 pages)
+
+---
+
+## RESOURCE REQUIREMENTS
+
+### 6-Week Sprint
+- Team Size: 8.75 FTE
+- Budget: $201,250
+- Timeline: Weeks 1-6
+
+Breakdown:
+- Senior Writers: 4 FTE
+- Technical Writers: 2 FTE
+- Content Strategist: 0.5 FTE
+- Technical Reviewers: 1 FTE
+- Editor: 1 FTE
+- Contractors: $25K buffer
+
+### Ongoing (Post-Launch)
+- 2 FTE: $18K/month
+- Total 6-month program: $291,250
+
+---
+
+## SUCCESS METRICS
+
+### Primary KPIs
+1. Content Freshness: 87% stale → 0% for 297 pages
+2. Traffic Coverage: 0% → 55% of users
+3. User Satisfaction: 47 CSAT → 60+ CSAT
+4. Support Tickets: Baseline → 25% reduction
+
+### Secondary Metrics
+- Time on page: +15%
+- Bounce rate: -10%
+- Pages per session: +20%
+- Return visitor rate: +10%
+
+---
+
+## EXPORTED DATA FILES
+
+Available for detailed planning:
+1. Tier1_Critical_Update.csv (50 records)
+2. Tier2_High_Priority.csv (50 records)
+3. Tier3_Low_CSAT.csv (50 records)
+4. Tier4_Strategic.csv (147 records)
+5. Top100_Overall_Priorities.csv (100 records)
+
+Location: C:\Users\cmedipally\
+
+---
+
+## PRIORITIZATION METHODOLOGY
+
+Composite Priority Score Formula:
+```
+Priority Score =
+  (Traffic_Score × 40%) +
+  (Staleness_Score × 30%) +
+  (CSAT_Score × 20%) +
+  (Never_Reviewed_Bonus × 10%)
+
+Where:
+- Traffic_Score = % of Traffic × 1,000,000
+- Staleness_Score = DaysSinceReview / 365
+- CSAT_Score = 100 - Content_SAT (inverted)
+- Never_Reviewed_Bonus = 10 points if never reviewed
+```
+
+Tier Definitions:
+- Tier 1: Traffic > 0.0001% AND (Days > 180 OR Never Reviewed)
+- Tier 2: Traffic 0.00001-0.0001% AND (Days > 730 OR Never Reviewed)
+- Tier 3: CSAT = 0 AND Traffic > 0.000001%
+- Tier 4: Get Started, Landing, or Navigation content types
+
+---
+
+## HOW TO USE THIS CONTEXT
+
+When users ask questions, reference this context to provide:
+1. Specific page titles and metrics
+2. Tier-based recommendations
+3. Writer assignments based on historical data
+4. Export-ready filtered lists
+5. Cross-dimensional analysis
+
+Example queries to expect:
+- "Show me Tier 1 SharePoint pages"
+- "Which pages about authentication need updating?"
+- "What's the average CSAT for How To content?"
+- "Create a sprint plan for my team"
+- "Which writer should own Viva Engage updates?"
+
+Always provide:
+- Specific numbers and page titles
+- Clear prioritization rationale
+- Actionable next steps
+- Export options when listing multiple items

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint & Viva Content Analysis Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            padding: 30px;
+            background: white;
+            border-bottom: 2px solid #eee;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .content-section {
+            padding: 30px;
+        }
+
+        .tier-section {
+            margin-bottom: 40px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tier-header {
+            padding: 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tier-header:hover {
+            background: #f8f9fa;
+        }
+
+        .tier1 { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; }
+        .tier2 { background: linear-gradient(135deg, #f9ca24 0%, #f0932b 100%); color: white; }
+        .tier3 { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); color: white; }
+        .tier4 { background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); color: white; }
+
+        .tier-content {
+            display: none;
+            padding: 20px;
+            background: white;
+        }
+
+        .tier-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge-high { background: #ff6b6b; color: white; }
+        .badge-medium { background: #f9ca24; color: #333; }
+        .badge-low { background: #00b894; color: white; }
+
+        .search-highlight {
+            background: yellow;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .chart-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bar-label {
+            min-width: 200px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .bar {
+            height: 30px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            transition: width 0.5s;
+            position: relative;
+        }
+
+        .bar-value {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .toggle-arrow {
+            transition: transform 0.3s;
+        }
+
+        .toggle-arrow.active {
+            transform: rotate(180deg);
+        }
+
+        button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .export-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filters {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 SharePoint & Viva Content Analysis</h1>
+            <p>Interactive Dashboard - 8,865 Documentation Assets</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Product Refresh Preparation | January 2026</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">8,865</div>
+                <div class="stat-label">Total Assets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">87%</div>
+                <div class="stat-label">Over 1 Year Old</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">47</div>
+                <div class="stat-label">Avg CSAT Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">297</div>
+                <div class="stat-label">Pages to Update</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">55%</div>
+                <div class="stat-label">Traffic Coverage</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="tab-container">
+                <div class="tab active" data-tab="overview">Overview</div>
+                <div class="tab" data-tab="tiers">Priority Tiers</div>
+                <div class="tab" data-tab="breakdown">Breakdowns</div>
+                <div class="tab" data-tab="export">Export Data</div>
+            </div>
+
+            <div class="filters">
+                <div class="control-group">
+                    <label>🔍 Search Pages</label>
+                    <input type="text" id="searchInput" placeholder="Search by title, theme, or content type...">
+                </div>
+                <div class="control-group">
+                    <label>📦 Product</label>
+                    <select id="productFilter">
+                        <option value="">All Products</option>
+                        <option value="SharePoint">SharePoint</option>
+                        <option value="Viva">Viva</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>🏷️ Platform</label>
+                    <select id="platformFilter">
+                        <option value="">All Platforms</option>
+                        <option value="LMC Git">LMC Git</option>
+                        <option value="SMC C3">SMC C3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <!-- Overview Tab -->
+            <div id="overview-content" class="tab-content active">
+                <h2>📈 Content Distribution</h2>
+
+                <div class="chart-container">
+                    <h3>Top 10 Themes by Asset Count</h3>
+                    <div class="bar-chart" id="themeChart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Content Freshness Distribution</h3>
+                    <div class="bar-chart" id="freshnessChart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Top 10 Content Types</h3>
+                    <div class="bar-chart" id="contentTypeChart"></div>
+                </div>
+            </div>
+
+            <!-- Tiers Tab -->
+            <div id="tiers-content" class="tab-content">
+                <h2>🎯 Priority Tiers</h2>
+                <p style="margin-bottom: 30px; color: #666;">Click on each tier to expand and see the prioritized pages</p>
+
+                <!-- Tier 1 -->
+                <div class="tier-section">
+                    <div class="tier-header tier1" onclick="toggleTier('tier1')">
+                        <div>
+                            <h3>Tier 1: CRITICAL (50 pages)</h3>
+                            <p style="margin-top: 5px; opacity: 0.9;">High Traffic + Stale Content | 49.6% Traffic Impact</p>
+                        </div>
+                        <span class="toggle-arrow" id="tier1-arrow">▼</span>
+                    </div>
+                    <div class="tier-content" id="tier1-content">
+                        <div id="tier1-table"></div>
+                    </div>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="tier-section">
+                    <div class="tier-header tier2" onclick="toggleTier('tier2')">
+                        <div>
+                            <h3>Tier 2: HIGH PRIORITY (50 pages)</h3>
+                            <p style="margin-top: 5px; opacity: 0.9;">Technical Content | Avg 6 Years Old</p>
+                        </div>
+                        <span class="toggle-arrow" id="tier2-arrow">▼</span>
+                    </div>
+                    <div class="tier-content" id="tier2-content">
+                        <div id="tier2-table"></div>
+                    </div>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="tier-section">
+                    <div class="tier-header tier3" onclick="toggleTier('tier3')">
+                        <div>
+                            <h3>Tier 3: USER SATISFACTION (50 pages)</h3>
+                            <p style="margin-top: 5px; opacity: 0.9;">Low CSAT Scores | User Pain Points</p>
+                        </div>
+                        <span class="toggle-arrow" id="tier3-arrow">▼</span>
+                    </div>
+                    <div class="tier-content" id="tier3-content">
+                        <div id="tier3-table"></div>
+                    </div>
+                </div>
+
+                <!-- Tier 4 -->
+                <div class="tier-section">
+                    <div class="tier-header tier4" onclick="toggleTier('tier4')">
+                        <div>
+                            <h3>Tier 4: STRATEGIC (147 pages)</h3>
+                            <p style="margin-top: 5px; opacity: 0.9;">Get Started & Landing Pages | Entry Points</p>
+                        </div>
+                        <span class="toggle-arrow" id="tier4-arrow">▼</span>
+                    </div>
+                    <div class="tier-content" id="tier4-content">
+                        <div id="tier4-table"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breakdown Tab -->
+            <div id="breakdown-content" class="tab-content">
+                <h2>📊 Detailed Breakdowns</h2>
+
+                <div class="chart-container">
+                    <h3>Product Distribution</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">SharePoint</div>
+                            <div class="bar" style="width: 85.5%;">
+                                <span class="bar-value">7,578 (85.5%)</span>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">Viva</div>
+                            <div class="bar" style="width: 14.5%;">
+                                <span class="bar-value">1,285 (14.5%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Platform Distribution</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">LMC Git</div>
+                            <div class="bar" style="width: 56.4%;">
+                                <span class="bar-value">4,997 (56.4%)</span>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">SMC C3</div>
+                            <div class="bar" style="width: 43.6%;">
+                                <span class="bar-value">3,866 (43.6%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Top 10 Product Areas</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Area</th>
+                                <th>Asset Count</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productAreaTable"></tbody>
+                    </table>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Top 10 Writers by Asset Count</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Writer</th>
+                                <th>Asset Count</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="writerTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Export Tab -->
+            <div id="export-content" class="tab-content">
+                <h2>📥 Export Data</h2>
+
+                <div class="export-section">
+                    <h3>Available Export Files</h3>
+                    <p style="margin: 15px 0;">Download pre-generated CSV files for detailed planning:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>Description</th>
+                                <th>Records</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tier1_Critical_Update.csv</strong></td>
+                                <td>High-traffic pages needing immediate update</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tier2_High_Priority.csv</strong></td>
+                                <td>Technical/admin content very outdated</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tier3_Low_CSAT.csv</strong></td>
+                                <td>Pages with user satisfaction issues</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tier4_Strategic.csv</strong></td>
+                                <td>Get started & landing pages</td>
+                                <td>147</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Top100_Overall_Priorities.csv</strong></td>
+                                <td>Master priority list</td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="margin-top: 20px; color: #666;">
+                        <strong>Location:</strong> C:\Users\cmedipally\<br>
+                        All files include: AssetId, TopicTitle, URL, Impressions, DaysSinceReview, Content SAT, Theme, ContentType, Product
+                    </p>
+                </div>
+
+                <div class="export-section" style="margin-top: 30px;">
+                    <h3>Full Dataset</h3>
+                    <p style="margin: 15px 0;">Access the complete dataset:</p>
+                    <p><strong>VSPSites.csv</strong> - 8,865 records with 30 columns</p>
+                    <p style="color: #666;">Location: C:\Users\cmedipally\OneDrive - Microsoft\Desktop\Documentation\VSPSites.csv</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for charts
+        const themeData = [
+            { name: 'powershell', count: 2251, pct: 25.39 },
+            { name: 'Updates', count: 1626, pct: 18.34 },
+            { name: 'sharepoint', count: 1578, pct: 17.80 },
+            { name: 'viva', count: 879, pct: 9.92 },
+            { name: 'microsoft-365', count: 243, pct: 2.74 },
+            { name: 'Lists and libraries', count: 173, pct: 1.95 },
+            { name: 'Formulas/functions', count: 129, pct: 1.46 },
+            { name: 'Viva Engage', count: 93, pct: 1.05 },
+            { name: 'File management', count: 73, pct: 0.82 },
+            { name: 'SharePoint sites', count: 71, pct: 0.80 }
+        ];
+
+        const freshnessData = [
+            { label: '> 365 days (STALE)', count: 7689, pct: 86.73 },
+            { label: '271-365 days', count: 467, pct: 5.27 },
+            { label: '181-270 days', count: 269, pct: 3.03 },
+            { label: '91-180 days', count: 277, pct: 3.12 },
+            { label: '0-90 days (FRESH)', count: 161, pct: 1.82 }
+        ];
+
+        const contentTypeData = [
+            { name: 'Reference', count: 3099, pct: 34.96 },
+            { name: 'How To', count: 1356, pct: 15.30 },
+            { name: 'Troubleshooting', count: 969, pct: 10.93 },
+            { name: 'how-to', count: 920, pct: 10.38 },
+            { name: 'Update', count: 706, pct: 7.96 },
+            { name: 'article', count: 507, pct: 5.72 },
+            { name: 'concept-article', count: 256, pct: 2.89 },
+            { name: 'Training', count: 133, pct: 1.50 },
+            { name: 'install-set-up-deploy', count: 132, pct: 1.49 },
+            { name: 'overview', count: 79, pct: 0.89 }
+        ];
+
+        const productAreaData = [
+            { name: 'SharePoint in Microsoft 365', count: 3833, pct: 43.24 },
+            { name: 'SharePoint Server', count: 3333, pct: 37.60 },
+            { name: 'Viva Engage', count: 300, pct: 3.38 },
+            { name: 'Viva Glint', count: 259, pct: 2.92 },
+            { name: 'Document processing for M365', count: 217, pct: 2.45 },
+            { name: 'Viva Insights', count: 192, pct: 2.17 },
+            { name: 'Microsoft Stream', count: 149, pct: 1.68 },
+            { name: 'Viva Suite/Admin', count: 148, pct: 1.67 },
+            { name: 'Viva Goals', count: 141, pct: 1.59 },
+            { name: 'Viva Learning', count: 91, pct: 1.03 }
+        ];
+
+        const writerData = [
+            { name: 'dcscontentpm@microsoft.com', count: 1362, pct: 15.36 },
+            { name: 'ruihu@microsoft.com', count: 1204, pct: 13.58 },
+            { name: 'pamgreen', count: 1097, pct: 12.37 },
+            { name: 'speedta', count: 1032, pct: 11.64 },
+            { name: 'serdars', count: 860, pct: 9.70 },
+            { name: 'kbsec@microsoft.com', count: 464, pct: 5.23 },
+            { name: 'luche', count: 394, pct: 4.44 },
+            { name: 'ruihu', count: 263, pct: 2.97 },
+            { name: 'bseetharaman', count: 212, pct: 2.39 },
+            { name: 'smccontent@microsoft.com', count: 207, pct: 2.34 }
+        ];
+
+        const tier1Data = [
+            { title: 'Sign in to SharePoint', impressions: '12,976,493', age: 288, csat: 43, product: 'SharePoint' },
+            { title: 'Sharing files, folders, and list items', impressions: '4,131,558', age: 461, csat: 51, product: 'SharePoint' },
+            { title: 'Create and use modern pages', impressions: '2,579,931', age: 468, csat: 52, product: 'SharePoint' },
+            { title: 'Troubleshooting issues in SharePoint', impressions: '1,967,376', age: 260, csat: 42, product: 'SharePoint' },
+            { title: 'What is a SharePoint team site?', impressions: '1,893,428', age: 275, csat: 59, product: 'SharePoint' },
+            { title: 'List and library column types', impressions: '1,165,835', age: 504, csat: 42, product: 'SharePoint' },
+            { title: 'View, edit, and add page details', impressions: '1,163,387', age: 391, csat: 44, product: 'SharePoint' },
+            { title: 'Get started with SharePoint', impressions: '1,150,784', age: 349, csat: 48, product: 'SharePoint' },
+            { title: 'Create and share news', impressions: '1,097,812', age: 439, csat: 58, product: 'SharePoint' },
+            { title: 'SharePoint help', impressions: '847,940', age: 414, csat: 46, product: 'SharePoint' }
+        ];
+
+        // Render bar charts
+        function renderBarChart(containerId, data, valueKey, maxValue) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = data.map(item => `
+                <div class="bar-item">
+                    <div class="bar-label">${item.name || item.label}</div>
+                    <div class="bar" style="width: ${(item[valueKey] / maxValue * 100)}%;">
+                        <span class="bar-value">${item.count.toLocaleString()} (${item.pct}%)</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render tables
+        function renderTable(tableId, data, columns) {
+            const tbody = document.getElementById(tableId);
+            tbody.innerHTML = data.map(item => `
+                <tr>
+                    ${columns.map(col => `<td>${item[col.key]}</td>`).join('')}
+                </tr>
+            `).join('');
+        }
+
+        // Initialize charts
+        renderBarChart('themeChart', themeData, 'count', 2251);
+        renderBarChart('freshnessChart', freshnessData, 'count', 7689);
+        renderBarChart('contentTypeChart', contentTypeData, 'count', 3099);
+
+        renderTable('productAreaTable', productAreaData, [
+            { key: 'name' },
+            { key: 'count' },
+            { key: 'pct' }
+        ]);
+
+        renderTable('writerTable', writerData, [
+            { key: 'name' },
+            { key: 'count' },
+            { key: 'pct' }
+        ]);
+
+        // Render tier tables
+        function renderTierTable(tierId, data) {
+            const container = document.getElementById(`${tierId}-table`);
+            if (data.length === 0) {
+                container.innerHTML = '<p class="no-results">No data available for this tier</p>';
+                return;
+            }
+
+            container.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Page Title</th>
+                            <th>Impressions</th>
+                            <th>Days Old</th>
+                            <th>CSAT</th>
+                            <th>Product</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${data.map(item => `
+                            <tr>
+                                <td><strong>${item.title}</strong></td>
+                                <td>${item.impressions}</td>
+                                <td><span class="badge ${item.age > 365 ? 'badge-high' : item.age > 180 ? 'badge-medium' : 'badge-low'}">${item.age} days</span></td>
+                                <td>${item.csat || 'N/A'}</td>
+                                <td>${item.product}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        renderTierTable('tier1', tier1Data);
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.dataset.tab;
+
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(`${tabName}-content`).classList.add('active');
+            });
+        });
+
+        // Tier toggling
+        function toggleTier(tierId) {
+            const content = document.getElementById(`${tierId}-content`);
+            const arrow = document.getElementById(`${tierId}-arrow`);
+
+            content.classList.toggle('active');
+            arrow.classList.toggle('active');
+        }
+
+        // Search and filter functionality
+        // (Simplified for demo - would connect to actual CSV data in production)
+
+        console.log('Dashboard loaded successfully!');
+        console.log('Data files location: C:\\Users\\cmedipally\\');
+    </script>
+</body>
+</html>
