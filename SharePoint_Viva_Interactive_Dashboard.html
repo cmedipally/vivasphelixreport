@@ -171,6 +171,17 @@
             border-bottom: none;
         }
 
+        td a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        td a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
         .badge {
             display: inline-block;
             padding: 5px 12px;
@@ -332,58 +343,58 @@
     </div>
 
     <script>
-        // Sample data - Top 50 pages by traffic
+        // Sample data - Top 50 pages by traffic with real URLs
         const trafficData = [
-            { rank: 1, title: 'Sign in to SharePoint', impressions: 12976493, age: 288, csat: 43, product: 'SharePoint', theme: 'Sign in/Authentication' },
-            { rank: 2, title: 'Sharing files, folders, and list items', impressions: 4131558, age: 461, csat: 51, product: 'SharePoint', theme: 'Sharing' },
-            { rank: 3, title: 'Create and use modern pages', impressions: 2579931, age: 468, csat: 52, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 4, title: 'Troubleshooting issues in SharePoint', impressions: 1967376, age: 260, csat: 42, product: 'SharePoint', theme: 'Troubleshooting' },
-            { rank: 5, title: 'What is a SharePoint team site?', impressions: 1893428, age: 275, csat: 59, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 6, title: 'List and library column types', impressions: 1165835, age: 504, csat: 42, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 7, title: 'View, edit, and add page details', impressions: 1163387, age: 391, csat: 44, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 8, title: 'Get started with SharePoint', impressions: 1150784, age: 349, csat: 48, product: 'SharePoint', theme: 'Get Started' },
-            { rank: 9, title: 'Create and share news on SharePoint', impressions: 1097812, age: 439, csat: 58, product: 'SharePoint', theme: 'News' },
-            { rank: 10, title: 'SharePoint help & learning', impressions: 847940, age: 414, csat: 46, product: 'SharePoint', theme: 'Help' },
-            { rank: 11, title: 'Delete a file, folder, or link', impressions: 831251, age: 482, csat: 48, product: 'SharePoint', theme: 'File management' },
-            { rank: 12, title: 'Introduction to SharePoint', impressions: 778624, age: 301, csat: 52, product: 'SharePoint', theme: 'Get Started' },
-            { rank: 13, title: 'Share OneDrive files and folders', impressions: 743118, age: 388, csat: 49, product: 'SharePoint', theme: 'Sharing' },
-            { rank: 14, title: 'Create a list in SharePoint', impressions: 718539, age: 425, csat: 54, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 15, title: 'Add an app to a site', impressions: 695421, age: 512, csat: 41, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 16, title: 'Edit a list column in SharePoint', impressions: 673852, age: 456, csat: 45, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 17, title: 'Create a team site in SharePoint', impressions: 658194, age: 398, csat: 55, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 18, title: 'Add a web part to a page', impressions: 642573, age: 478, csat: 47, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 19, title: 'Customize your SharePoint site', impressions: 625918, age: 365, csat: 50, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 20, title: 'Use the Highlight content web part', impressions: 608342, age: 502, csat: 53, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 21, title: 'SharePoint limits', impressions: 591765, age: 421, csat: 44, product: 'SharePoint', theme: 'Reference' },
-            { rank: 22, title: 'Create a page in SharePoint', impressions: 574291, age: 445, csat: 51, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 23, title: 'Manage site permissions', impressions: 558637, age: 489, csat: 46, product: 'SharePoint', theme: 'Permissions' },
-            { rank: 24, title: 'SharePoint Online planning guide', impressions: 541982, age: 533, csat: 40, product: 'SharePoint', theme: 'Planning' },
-            { rank: 25, title: 'Viva Engage overview', impressions: 524318, age: 312, csat: 56, product: 'Viva', theme: 'Viva Engage' },
-            { rank: 26, title: 'Create a document library', impressions: 508754, age: 467, csat: 52, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 27, title: 'Differences between classic and modern', impressions: 492091, age: 544, csat: 38, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 28, title: 'Upload files and folders', impressions: 476527, age: 411, csat: 49, product: 'SharePoint', theme: 'File management' },
-            { rank: 29, title: 'Stop sharing files or folders', impressions: 461963, age: 494, csat: 47, product: 'SharePoint', theme: 'Sharing' },
-            { rank: 30, title: 'Create a communication site', impressions: 445398, age: 378, csat: 54, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 31, title: 'Add a page, document library, and list', impressions: 429834, age: 501, csat: 45, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 32, title: 'Enable or disable site features', impressions: 414271, age: 522, csat: 42, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 33, title: 'Plan your site structure', impressions: 398707, age: 456, csat: 48, product: 'SharePoint', theme: 'Planning' },
-            { rank: 34, title: 'Use column formatting', impressions: 383143, age: 489, csat: 51, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 35, title: 'What is Viva Insights?', impressions: 367579, age: 298, csat: 57, product: 'Viva', theme: 'Viva Insights' },
-            { rank: 36, title: 'Create views in a list or library', impressions: 352015, age: 512, csat: 46, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 37, title: 'Add users to SharePoint', impressions: 336451, age: 467, csat: 50, product: 'SharePoint', theme: 'Permissions' },
-            { rank: 38, title: 'Sync SharePoint files', impressions: 320887, age: 434, csat: 45, product: 'SharePoint', theme: 'File management' },
-            { rank: 39, title: 'Get started with Viva Goals', impressions: 305323, age: 287, csat: 58, product: 'Viva', theme: 'Viva Goals' },
-            { rank: 40, title: 'Change the look of your site', impressions: 289759, age: 498, csat: 49, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 41, title: 'SharePoint Server overview', impressions: 274195, age: 1876, csat: 35, product: 'SharePoint', theme: 'Reference' },
-            { rank: 42, title: 'Manage lists and libraries', impressions: 258631, age: 523, csat: 44, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 43, title: 'Use the Document Library web part', impressions: 243067, age: 489, csat: 52, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 44, title: 'Set up Viva Learning', impressions: 227503, age: 302, csat: 56, product: 'Viva', theme: 'Viva Learning' },
-            { rank: 45, title: 'Restore deleted items', impressions: 211939, age: 478, csat: 48, product: 'SharePoint', theme: 'File management' },
-            { rank: 46, title: 'Create site columns', impressions: 196375, age: 534, csat: 43, product: 'SharePoint', theme: 'Lists and libraries' },
-            { rank: 47, title: 'Configure Viva Glint', impressions: 180811, age: 315, csat: 55, product: 'Viva', theme: 'Viva Glint' },
-            { rank: 48, title: 'Publish SharePoint pages', impressions: 165247, age: 467, csat: 50, product: 'SharePoint', theme: 'Modern pages' },
-            { rank: 49, title: 'Use SharePoint as intranet', impressions: 149683, age: 545, csat: 41, product: 'SharePoint', theme: 'Planning' },
-            { rank: 50, title: 'Viva Suite admin overview', impressions: 134119, age: 298, csat: 57, product: 'Viva', theme: 'Viva Suite/Admin' }
+            { rank: 1, title: 'Sign in to SharePoint', url: 'https://support.microsoft.com/en-us/topic/324a89ec-e77b-4475-b64a-13a0c14c45ec', impressions: 12976493, age: 288, csat: 43, product: 'SharePoint', theme: 'Sign in' },
+            { rank: 2, title: 'Sharing files, folders, and list items', url: 'https://support.microsoft.com/en-us/topic/74cab0bf-39c6-4112-a63f-88ee121722d0', impressions: 4131558, age: 461, csat: 51, product: 'SharePoint', theme: 'Collaborate and share' },
+            { rank: 3, title: 'Create and use modern pages on a SharePoint site', url: 'https://support.microsoft.com/en-us/topic/b3d46deb-27a6-4b1e-87b8-df851e503dec', impressions: 2579931, age: 468, csat: 52, product: 'SharePoint', theme: 'SharePoint pages' },
+            { rank: 4, title: 'Troubleshooting issues in SharePoint', url: 'https://support.microsoft.com/en-us/topic/dc656f67-fec3-4948-9ec2-5e1b51886964', impressions: 1967376, age: 260, csat: 42, product: 'SharePoint', theme: 'Troubleshooting' },
+            { rank: 5, title: 'What is a SharePoint team site?', url: 'https://support.microsoft.com/en-us/topic/75545757-36c3-46a7-beed-0aaa74f0401e', impressions: 1893428, age: 275, csat: 59, product: 'SharePoint', theme: 'Templates' },
+            { rank: 6, title: 'List and library column types and options', url: 'https://support.microsoft.com/en-us/topic/0d8ddb7b-7dc7-414d-a283-ee9dca891df7', impressions: 1165835, age: 504, csat: 42, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
+            { rank: 7, title: 'View, edit, and add page details', url: 'https://support.microsoft.com/en-us/topic/778018d3-8269-4fd2-a55d-8c0e5b72b938', impressions: 1163387, age: 391, csat: 44, product: 'SharePoint', theme: 'SharePoint pages' },
+            { rank: 8, title: 'Get started with SharePoint', url: 'https://support.microsoft.com/en-us/topic/909ec2f0-05c8-4e92-8ad3-3f8b0b6cf261', impressions: 1150784, age: 349, csat: 48, product: 'SharePoint', theme: 'Get started' },
+            { rank: 9, title: 'Create and share news on your SharePoint sites', url: 'https://support.microsoft.com/en-us/topic/495f8f1a-3bef-4045-b33a-55e5abe7aed7', impressions: 1097812, age: 439, csat: 58, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 10, title: 'SharePoint help', url: 'https://support.microsoft.com/en-us/topic/83c1c11b-3d7c-4852-b597-46309e0892b3', impressions: 847940, age: 414, csat: 46, product: 'SharePoint', theme: 'Help' },
+            { rank: 11, title: 'Use the Highlighted content web part', url: 'https://support.microsoft.com/en-us/topic/e34199b0-ff1a-47fb-8f4d-dbcaed329efd', impressions: 834545, age: 328, csat: 51, product: 'SharePoint', theme: 'SharePoint web parts' },
+            { rank: 12, title: 'Schedule send in Outlook', url: 'https://support.microsoft.com/en-us/topic/0b0c0c20-8fa1-44b9-b5bc-57f160046639', impressions: 808094, age: 420, csat: 63, product: 'Viva', theme: 'Viva' },
+            { rank: 13, title: 'Viva Glint frequently asked questions', url: 'https://support.microsoft.com/en-us/topic/e2db8792-d4a3-4e73-84e9-7161fb18fa7d', impressions: 720695, age: 321, csat: 78, product: 'Viva', theme: 'Viva Glint' },
+            { rank: 14, title: 'Examples of common formulas in lists', url: 'https://support.microsoft.com/en-us/topic/d81f5f21-2b4e-45ce-b170-bf7ebf6988b3', impressions: 694287, age: 516, csat: 46, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
+            { rank: 15, title: 'Restore deleted items from the site collection recycle bin', url: 'https://support.microsoft.com/en-us/topic/5fa924ee-16d7-487b-9a0a-021b9062d14b', impressions: 663308, age: 341, csat: 57, product: 'SharePoint', theme: 'File management' },
+            { rank: 16, title: 'Restore items in the recycle bin that were deleted from SharePoint or Teams', url: 'https://support.microsoft.com/en-us/topic/6df466b6-55f2-4898-8d6e-c0dff851a0be', impressions: 629773, age: 350, csat: 46, product: 'SharePoint', theme: 'File management' },
+            { rank: 17, title: 'View SharePoint files in File Explorer', url: 'https://support.microsoft.com/en-us/topic/66b574bb-08b4-46b6-a6a0-435fd98194cc', impressions: 626769, age: 383, csat: 38, product: 'SharePoint', theme: 'File management' },
+            { rank: 18, title: 'Share SharePoint files or folders', url: 'https://support.microsoft.com/en-us/topic/1fe37332-0f9a-4719-970e-d2578da4941c', impressions: 596196, age: 414, csat: 51, product: 'SharePoint', theme: 'Collaborate and share' },
+            { rank: 19, title: 'Discover content with the SharePoint start page', url: 'https://support.microsoft.com/en-us/topic/6b85097a-87e0-4611-a29a-dfd49b1a1220', impressions: 567214, age: 589, csat: 42, product: 'SharePoint', theme: 'SharePoint pages' },
+            { rank: 20, title: 'SharePoint mobile app sign in options', url: 'https://support.microsoft.com/en-us/topic/fc002093-6a1a-41bf-b9d1-7e217c1cc7b6', impressions: 562137, age: 365, csat: 57, product: 'SharePoint', theme: 'Sign in' },
+            { rank: 21, title: 'Viewing SharePoint start page with Microsoft Graph turned off', url: 'https://support.microsoft.com/en-us/topic/3eb40fe7-6be9-4dca-a9f2-ad3e39bf28b0', impressions: 552386, age: 396, csat: 64, product: 'SharePoint', theme: 'SharePoint pages' },
+            { rank: 22, title: 'Change the look of your SharePoint site', url: 'https://support.microsoft.com/en-us/topic/06bbadc3-6b04-4a60-9d14-894f6a170818', impressions: 531873, age: 266, csat: 55, product: 'SharePoint', theme: 'Customization' },
+            { rank: 23, title: 'Use the SharePoint Standard communication, Showcase, and Blank communication site templates', url: 'https://support.microsoft.com/en-us/topic/94a33429-e580-45c3-a090-5512a8070732', impressions: 518596, age: 275, csat: 57, product: 'SharePoint', theme: 'Templates' },
+            { rank: 24, title: 'Change your personal language and region settings', url: 'https://support.microsoft.com/en-us/topic/caa1fccc-bcdb-42f3-9e5b-45957647ffd7', impressions: 504175, age: 254, csat: 44, product: 'SharePoint', theme: 'Language and translation' },
+            { rank: 25, title: 'Customize permissions for a SharePoint list or library', url: 'https://support.microsoft.com/en-us/topic/02d770f3-59eb-4910-a608-5f84cc297782', impressions: 502812, age: 352, csat: 37, product: 'SharePoint', theme: 'Customization' },
+            { rank: 26, title: 'SharePoint Alerts retirement', url: 'https://support.microsoft.com/en-us/topic/813a90c7-3ff1-47a9-8a2f-152f48b2486f', impressions: 501577, age: 255, csat: 54, product: 'SharePoint', theme: 'Alerts' },
+            { rank: 27, title: 'Sign in to Viva Engage', url: 'https://support.microsoft.com/en-us/topic/d863154a-4223-4ea2-8855-ccc971321b8e', impressions: 471357, age: 69, csat: 50, product: 'Viva', theme: 'Sign in' },
+            { rank: 28, title: 'SharePoint help & learning', url: 'https://support.microsoft.com/en-us/sharepoint', impressions: 431264, age: 426, csat: null, product: 'SharePoint', theme: 'Help' },
+            { rank: 29, title: 'Not getting the search results you're looking for in SharePoint?', url: 'https://support.microsoft.com/en-us/topic/d80687f7-1010-4e6d-add9-584b423289d9', impressions: 411364, age: 642, csat: 45, product: 'SharePoint', theme: 'Search' },
+            { rank: 30, title: 'Apply and customize SharePoint site templates', url: 'https://support.microsoft.com/en-us/topic/39382463-0e45-4d1b-be27-0e96aeec8398', impressions: 399614, age: 617, csat: 60, product: 'SharePoint', theme: 'Customization' },
+            { rank: 31, title: 'Sync SharePoint and Teams files with your computer', url: 'https://support.microsoft.com/en-us/topic/6de9ede8-5b6e-4503-80b2-6190f3354a88', impressions: 394529, age: 349, csat: 43, product: 'SharePoint', theme: 'File management' },
+            { rank: 32, title: 'Customize the navigation on your SharePoint site', url: 'https://support.microsoft.com/en-us/topic/3cd61ae7-a9ed-4e1e-bf6d-4655f0bf25ca', impressions: 391213, age: 314, csat: 41, product: 'SharePoint', theme: 'Customization' },
+            { rank: 33, title: 'Create a list', url: 'https://support.microsoft.com/en-us/topic/0d397414-d95f-41eb-addd-5e6eff41b083', impressions: 389956, age: 408, csat: 54, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
+            { rank: 34, title: 'Manage sites in the SharePoint admin center', url: 'https://learn.microsoft.com/en-us/sharepoint/manage-sites-in-new-admin-center', impressions: 388134, age: 279, csat: 64, product: 'SharePoint', theme: 'Administration' },
+            { rank: 35, title: 'Create a rule to automate a list or library', url: 'https://support.microsoft.com/en-us/topic/151ea008-7fa6-409b-b0bd-b04a3b3cacd5', impressions: 374178, age: 516, csat: 56, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
+            { rank: 36, title: 'Sharing and permissions', url: 'https://support.microsoft.com/en-us/topic/ac85fbf1-2431-49bf-8690-f1a2b98af65f', impressions: 367297, age: 496, csat: 44, product: 'SharePoint', theme: 'Collaborate and share' },
+            { rank: 37, title: 'What is SharePoint?', url: 'https://support.microsoft.com/en-us/topic/97b915e6-651b-43b2-827d-fb25777f446f', impressions: 365477, age: 349, csat: 59, product: 'SharePoint', theme: 'Get started' },
+            { rank: 38, title: 'Change SharePoint online language settings', url: 'https://support.microsoft.com/en-us/topic/0f6a477a-dcab-4462-9d0c-e3b53d138183', impressions: 364657, age: 252, csat: 54, product: 'SharePoint', theme: 'Account management' },
+            { rank: 39, title: 'Create a site in SharePoint', url: 'https://support.microsoft.com/en-us/topic/4d1e11bf-8ddc-499d-b889-2b48d10b1ce8', impressions: 357416, age: 617, csat: 50, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 40, title: 'Introduction to SharePoint and OneDrive in Microsoft 365 for administrators', url: 'https://learn.microsoft.com/en-us/sharepoint/introduction', impressions: 334315, age: 279, csat: 68, product: 'SharePoint', theme: 'Administration' },
+            { rank: 41, title: 'Create a team site in SharePoint', url: 'https://support.microsoft.com/en-us/topic/ef10c1e7-15f3-42a3-98aa-b5972711777d', impressions: 323858, age: 601, csat: 69, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 42, title: 'External or guest sharing in OneDrive, SharePoint, and Lists', url: 'https://support.microsoft.com/en-us/topic/7aa070b8-d094-4921-9dd9-86392f2a79e7', impressions: 323826, age: null, csat: 41, product: 'SharePoint', theme: 'Collaborate and share' },
+            { rank: 43, title: 'Manage sharing settings for SharePoint and OneDrive in Microsoft 365', url: 'https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off', impressions: 319471, age: 34, csat: 43, product: 'SharePoint', theme: 'Administration' },
+            { rank: 44, title: 'Sync SharePoint files and folders', url: 'https://support.microsoft.com/en-us/topic/87a96948-4dd7-43e4-aca1-53f3e18bea9b', impressions: 312084, age: 390, csat: 40, product: 'SharePoint', theme: 'File management' },
+            { rank: 45, title: 'Section Design Ideas', url: 'https://support.microsoft.com/en-us/topic/1da23de6-3033-4719-98ac-9394a504cc77', impressions: 309883, age: null, csat: 61, product: 'SharePoint', theme: 'SharePoint pages' },
+            { rank: 46, title: 'SharePoint video training', url: 'https://support.microsoft.com/en-us/topic/cb8ef501-84db-4427-ac77-ec2009fb8e23', impressions: 304680, age: 20, csat: 67, product: 'SharePoint', theme: 'Get started' },
+            { rank: 47, title: 'View the version history of an item or file in a list or library', url: 'https://support.microsoft.com/en-us/topic/53262060-5092-424d-a50b-c798b0ec32b1', impressions: 298978, age: 610, csat: 26, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
+            { rank: 48, title: 'Using web parts on SharePoint pages', url: 'https://support.microsoft.com/en-us/topic/336e8e92-3e2d-4298-ae01-d404bbe751e0', impressions: 296374, age: 160, csat: 55, product: 'SharePoint', theme: 'SharePoint pages' },
+            { rank: 49, title: 'Manage your Viva Engage notifications', url: 'https://support.microsoft.com/en-us/topic/93e530e0-189f-4768-8f28-7683d48cc996', impressions: 289492, age: 44, csat: 39, product: 'Viva', theme: 'Viva Engage' },
+            { rank: 50, title: 'Sharing files, folders, and list items', url: 'https://support.microsoft.com/en-us/topic/e923c4f0-89f5-4cf0-8948-391e31fc0b30', impressions: 276261, age: 39, csat: 52, product: 'SharePoint', theme: 'Collaborate and share' }
         ];
 
         // Overview data
@@ -518,9 +529,9 @@
                         ${trafficData.map(item => `
                             <tr>
                                 <td><span class="rank-badge">${item.rank}</span></td>
-                                <td><strong>${item.title}</strong></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                                 <td>${item.product}</td>
                             </tr>
@@ -555,9 +566,9 @@
                         ${oldestPages.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
-                                <td>${(item.age / 365).toFixed(1)} yrs</td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
+                                <td>${item.age ? (item.age / 365).toFixed(1) : 'N/A'} yrs</td>
                                 <td>${formatNumber(item.impressions)}</td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                             </tr>
@@ -592,10 +603,10 @@
                         ${lowCSAT.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
-                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat}/100</span></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}/100</span></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td>${item.theme}</td>
                             </tr>
                         `).join('')}
@@ -682,9 +693,9 @@
                         ${spPages.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                                 <td>${item.theme}</td>
                             </tr>
@@ -719,9 +730,9 @@
                         ${vivaPages.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                                 <td>${item.theme}</td>
                             </tr>
@@ -755,9 +766,9 @@
                         ${signinPages.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                             </tr>
                         `).join('')}
@@ -790,9 +801,9 @@
                         ${modernPages.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                             </tr>
                         `).join('')}
@@ -825,9 +836,9 @@
                         ${sharingPages.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                             </tr>
                         `).join('')}
@@ -860,9 +871,9 @@
                         ${listPages.map((item, index) => `
                             <tr>
                                 <td><span class="rank-badge">${index + 1}</span></td>
-                                <td><strong>${item.title}</strong></td>
+                                <td><strong><a href="${item.url}" target="_blank" style="color: #667eea; text-decoration: none;">${item.title}</a></strong></td>
                                 <td>${formatNumber(item.impressions)}</td>
-                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age || 'N/A'} days</span></td>
                                 <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                             </tr>
                         `).join('')}
