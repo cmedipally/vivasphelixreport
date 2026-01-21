@@ -542,14 +542,14 @@
         }
 
         function renderFreshness() {
-            const oldestPages = [...trafficData].sort((a, b) => b.age - a.age).slice(0, 50);
+            const oldestPages = [...trafficData].sort((a, b) => (b.age || 0) - (a.age || 0)).slice(0, 50);
             return `
                 <div class="view-header">
                     <h2>⏰ Top 50 Most Outdated Pages</h2>
                     <p>Oldest content that hasn't been reviewed - highest staleness risk</p>
                 </div>
                 <div class="highlight-box">
-                    <strong>⚠️ Alert:</strong> Average age of these pages is ${Math.round(oldestPages.reduce((sum, p) => sum + p.age, 0) / oldestPages.length)} days (${(oldestPages.reduce((sum, p) => sum + p.age, 0) / oldestPages.length / 365).toFixed(1)} years)
+                    <strong>⚠️ Alert:</strong> Average age of these pages is ${Math.round(oldestPages.reduce((sum, p) => sum + (p.age || 0), 0) / oldestPages.length)} days (${(oldestPages.reduce((sum, p) => sum + (p.age || 0), 0) / oldestPages.length / 365).toFixed(1)} years)
                 </div>
                 <table>
                     <thead>
@@ -586,7 +586,7 @@
                     <p>Pages with lowest user satisfaction - address user pain points</p>
                 </div>
                 <div class="highlight-box">
-                    <strong>📉 User Feedback:</strong> Average CSAT of ${Math.round(lowCSAT.reduce((sum, p) => sum + p.csat, 0) / lowCSAT.length)}/100 indicates significant user dissatisfaction
+                    <strong>📉 User Feedback:</strong> Average CSAT of ${Math.round(lowCSAT.reduce((sum, p) => sum + (p.csat || 0), 0) / lowCSAT.length)}/100 indicates significant user dissatisfaction
                 </div>
                 <table>
                     <thead>
