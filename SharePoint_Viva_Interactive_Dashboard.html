@@ -95,76 +95,59 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: #555;
+            font-size: 16px;
         }
 
-        select, input {
+        select {
             width: 100%;
-            padding: 12px;
+            max-width: 600px;
+            padding: 15px;
             border: 2px solid #ddd;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 16px;
             transition: border-color 0.3s;
+            background: white;
         }
 
-        select:focus, input:focus {
+        select:focus {
             outline: none;
             border-color: #667eea;
         }
 
-        .filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
         .content-section {
             padding: 30px;
+            min-height: 400px;
         }
 
-        .tier-section {
-            margin-bottom: 40px;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
+        .view-header {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
         }
 
-        .tier-header {
-            padding: 20px;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.3s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .view-header h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
         }
 
-        .tier-header:hover {
-            background: #f8f9fa;
-        }
-
-        .tier1 { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; }
-        .tier2 { background: linear-gradient(135deg, #f9ca24 0%, #f0932b 100%); color: white; }
-        .tier3 { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); color: white; }
-        .tier4 { background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); color: white; }
-
-        .tier-content {
-            display: none;
-            padding: 20px;
-            background: white;
-        }
-
-        .tier-content.active {
-            display: block;
+        .view-header p {
+            color: #666;
+            font-size: 1.1em;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         th, td {
-            padding: 12px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
@@ -175,28 +158,44 @@
             color: #555;
             position: sticky;
             top: 0;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
         }
 
         tr:hover {
             background: #f8f9fa;
         }
 
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         .badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 5px 12px;
             border-radius: 12px;
             font-size: 0.85em;
             font-weight: 600;
         }
 
-        .badge-high { background: #ff6b6b; color: white; }
-        .badge-medium { background: #f9ca24; color: #333; }
-        .badge-low { background: #00b894; color: white; }
+        .badge-critical { background: #ff6b6b; color: white; }
+        .badge-high { background: #f9ca24; color: #333; }
+        .badge-medium { background: #00b894; color: white; }
+        .badge-low { background: #74b9ff; color: white; }
+        .badge-zero { background: #636e72; color: white; }
 
-        .search-highlight {
-            background: yellow;
-            padding: 2px 4px;
-            border-radius: 2px;
+        .rank-badge {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 10px;
         }
 
         .chart-container {
@@ -242,76 +241,16 @@
             font-size: 0.9em;
         }
 
-        .toggle-arrow {
-            transition: transform 0.3s;
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #f9ca24;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
         }
 
-        .toggle-arrow.active {
-            transform: rotate(180deg);
-        }
-
-        button {
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .export-section {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .tab-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .tab {
-            padding: 12px 24px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-            font-weight: 600;
-            color: #666;
-        }
-
-        .tab:hover {
-            color: #667eea;
-        }
-
-        .tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-            font-size: 1.2em;
+        .highlight-box strong {
+            color: #856404;
         }
 
         @media (max-width: 768px) {
@@ -319,8 +258,20 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .filters {
-                grid-template-columns: 1fr;
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .view-header h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px;
             }
         }
     </style>
@@ -348,7 +299,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-number">297</div>
-                <div class="stat-label">Pages to Update</div>
+                <div class="stat-label">Recommended Updates</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">55%</div>
@@ -357,252 +308,85 @@
         </div>
 
         <div class="controls">
-            <div class="tab-container">
-                <div class="tab active" data-tab="overview">Overview</div>
-                <div class="tab" data-tab="tiers">Priority Tiers</div>
-                <div class="tab" data-tab="breakdown">Breakdowns</div>
-                <div class="tab" data-tab="export">Export Data</div>
-            </div>
-
-            <div class="filters">
-                <div class="control-group">
-                    <label>🔍 Search Pages</label>
-                    <input type="text" id="searchInput" placeholder="Search by title, theme, or content type...">
-                </div>
-                <div class="control-group">
-                    <label>📦 Product</label>
-                    <select id="productFilter">
-                        <option value="">All Products</option>
-                        <option value="SharePoint">SharePoint</option>
-                        <option value="Viva">Viva</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>🏷️ Platform</label>
-                    <select id="platformFilter">
-                        <option value="">All Platforms</option>
-                        <option value="LMC Git">LMC Git</option>
-                        <option value="SMC C3">SMC C3</option>
-                    </select>
-                </div>
+            <div class="control-group">
+                <label>🔍 Select View</label>
+                <select id="viewSelector" onchange="changeView()">
+                    <option value="overview">📊 Overview - Key Metrics & Charts</option>
+                    <option value="traffic">🔥 By Traffic - Top Pages by Views</option>
+                    <option value="freshness">⏰ By Freshness - Most Outdated Content</option>
+                    <option value="csat">😞 By CSAT - Lowest User Satisfaction</option>
+                    <option value="never-reviewed">⚠️ Never Reviewed - High Risk Content</option>
+                    <option value="sharepoint">📦 By Product - SharePoint Only</option>
+                    <option value="viva">🎯 By Product - Viva Only</option>
+                    <option value="signin">🔐 By Theme - Sign In & Authentication</option>
+                    <option value="modern">🎨 By Theme - Modern Pages & Sites</option>
+                    <option value="sharing">🤝 By Theme - Sharing & Collaboration</option>
+                    <option value="lists">📋 By Theme - Lists & Libraries</option>
+                </select>
             </div>
         </div>
 
-        <div class="content-section">
-            <!-- Overview Tab -->
-            <div id="overview-content" class="tab-content active">
-                <h2>📈 Content Distribution</h2>
-
-                <div class="chart-container">
-                    <h3>Top 10 Themes by Asset Count</h3>
-                    <div class="bar-chart" id="themeChart"></div>
-                </div>
-
-                <div class="chart-container">
-                    <h3>Content Freshness Distribution</h3>
-                    <div class="bar-chart" id="freshnessChart"></div>
-                </div>
-
-                <div class="chart-container">
-                    <h3>Top 10 Content Types</h3>
-                    <div class="bar-chart" id="contentTypeChart"></div>
-                </div>
-            </div>
-
-            <!-- Tiers Tab -->
-            <div id="tiers-content" class="tab-content">
-                <h2>🎯 Priority Tiers</h2>
-                <p style="margin-bottom: 30px; color: #666;">Click on each tier to expand and see the prioritized pages</p>
-
-                <!-- Tier 1 -->
-                <div class="tier-section">
-                    <div class="tier-header tier1" onclick="toggleTier('tier1')">
-                        <div>
-                            <h3>Tier 1: CRITICAL (50 pages)</h3>
-                            <p style="margin-top: 5px; opacity: 0.9;">High Traffic + Stale Content | 49.6% Traffic Impact</p>
-                        </div>
-                        <span class="toggle-arrow" id="tier1-arrow">▼</span>
-                    </div>
-                    <div class="tier-content" id="tier1-content">
-                        <div id="tier1-table"></div>
-                    </div>
-                </div>
-
-                <!-- Tier 2 -->
-                <div class="tier-section">
-                    <div class="tier-header tier2" onclick="toggleTier('tier2')">
-                        <div>
-                            <h3>Tier 2: HIGH PRIORITY (50 pages)</h3>
-                            <p style="margin-top: 5px; opacity: 0.9;">Technical Content | Avg 6 Years Old</p>
-                        </div>
-                        <span class="toggle-arrow" id="tier2-arrow">▼</span>
-                    </div>
-                    <div class="tier-content" id="tier2-content">
-                        <div id="tier2-table"></div>
-                    </div>
-                </div>
-
-                <!-- Tier 3 -->
-                <div class="tier-section">
-                    <div class="tier-header tier3" onclick="toggleTier('tier3')">
-                        <div>
-                            <h3>Tier 3: USER SATISFACTION (50 pages)</h3>
-                            <p style="margin-top: 5px; opacity: 0.9;">Low CSAT Scores | User Pain Points</p>
-                        </div>
-                        <span class="toggle-arrow" id="tier3-arrow">▼</span>
-                    </div>
-                    <div class="tier-content" id="tier3-content">
-                        <div id="tier3-table"></div>
-                    </div>
-                </div>
-
-                <!-- Tier 4 -->
-                <div class="tier-section">
-                    <div class="tier-header tier4" onclick="toggleTier('tier4')">
-                        <div>
-                            <h3>Tier 4: STRATEGIC (147 pages)</h3>
-                            <p style="margin-top: 5px; opacity: 0.9;">Get Started & Landing Pages | Entry Points</p>
-                        </div>
-                        <span class="toggle-arrow" id="tier4-arrow">▼</span>
-                    </div>
-                    <div class="tier-content" id="tier4-content">
-                        <div id="tier4-table"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Breakdown Tab -->
-            <div id="breakdown-content" class="tab-content">
-                <h2>📊 Detailed Breakdowns</h2>
-
-                <div class="chart-container">
-                    <h3>Product Distribution</h3>
-                    <div class="bar-chart">
-                        <div class="bar-item">
-                            <div class="bar-label">SharePoint</div>
-                            <div class="bar" style="width: 85.5%;">
-                                <span class="bar-value">7,578 (85.5%)</span>
-                            </div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label">Viva</div>
-                            <div class="bar" style="width: 14.5%;">
-                                <span class="bar-value">1,285 (14.5%)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-container">
-                    <h3>Platform Distribution</h3>
-                    <div class="bar-chart">
-                        <div class="bar-item">
-                            <div class="bar-label">LMC Git</div>
-                            <div class="bar" style="width: 56.4%;">
-                                <span class="bar-value">4,997 (56.4%)</span>
-                            </div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label">SMC C3</div>
-                            <div class="bar" style="width: 43.6%;">
-                                <span class="bar-value">3,866 (43.6%)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-container">
-                    <h3>Top 10 Product Areas</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Product Area</th>
-                                <th>Asset Count</th>
-                                <th>Percentage</th>
-                            </tr>
-                        </thead>
-                        <tbody id="productAreaTable"></tbody>
-                    </table>
-                </div>
-
-                <div class="chart-container">
-                    <h3>Top 10 Writers by Asset Count</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Writer</th>
-                                <th>Asset Count</th>
-                                <th>Percentage</th>
-                            </tr>
-                        </thead>
-                        <tbody id="writerTable"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Export Tab -->
-            <div id="export-content" class="tab-content">
-                <h2>📥 Export Data</h2>
-
-                <div class="export-section">
-                    <h3>Available Export Files</h3>
-                    <p style="margin: 15px 0;">Download pre-generated CSV files for detailed planning:</p>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>File Name</th>
-                                <th>Description</th>
-                                <th>Records</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Tier1_Critical_Update.csv</strong></td>
-                                <td>High-traffic pages needing immediate update</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tier2_High_Priority.csv</strong></td>
-                                <td>Technical/admin content very outdated</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tier3_Low_CSAT.csv</strong></td>
-                                <td>Pages with user satisfaction issues</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tier4_Strategic.csv</strong></td>
-                                <td>Get started & landing pages</td>
-                                <td>147</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Top100_Overall_Priorities.csv</strong></td>
-                                <td>Master priority list</td>
-                                <td>100</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <p style="margin-top: 20px; color: #666;">
-                        <strong>Location:</strong> C:\Users\cmedipally\<br>
-                        All files include: AssetId, TopicTitle, URL, Impressions, DaysSinceReview, Content SAT, Theme, ContentType, Product
-                    </p>
-                </div>
-
-                <div class="export-section" style="margin-top: 30px;">
-                    <h3>Full Dataset</h3>
-                    <p style="margin: 15px 0;">Access the complete dataset:</p>
-                    <p><strong>VSPSites.csv</strong> - 8,865 records with 30 columns</p>
-                    <p style="color: #666;">Location: C:\Users\cmedipally\OneDrive - Microsoft\Desktop\Documentation\VSPSites.csv</p>
-                </div>
-            </div>
+        <div class="content-section" id="content">
+            <!-- Content will be dynamically loaded here -->
         </div>
     </div>
 
     <script>
-        // Sample data for charts
+        // Sample data - Top 50 pages by traffic
+        const trafficData = [
+            { rank: 1, title: 'Sign in to SharePoint', impressions: 12976493, age: 288, csat: 43, product: 'SharePoint', theme: 'Sign in/Authentication' },
+            { rank: 2, title: 'Sharing files, folders, and list items', impressions: 4131558, age: 461, csat: 51, product: 'SharePoint', theme: 'Sharing' },
+            { rank: 3, title: 'Create and use modern pages', impressions: 2579931, age: 468, csat: 52, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 4, title: 'Troubleshooting issues in SharePoint', impressions: 1967376, age: 260, csat: 42, product: 'SharePoint', theme: 'Troubleshooting' },
+            { rank: 5, title: 'What is a SharePoint team site?', impressions: 1893428, age: 275, csat: 59, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 6, title: 'List and library column types', impressions: 1165835, age: 504, csat: 42, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 7, title: 'View, edit, and add page details', impressions: 1163387, age: 391, csat: 44, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 8, title: 'Get started with SharePoint', impressions: 1150784, age: 349, csat: 48, product: 'SharePoint', theme: 'Get Started' },
+            { rank: 9, title: 'Create and share news on SharePoint', impressions: 1097812, age: 439, csat: 58, product: 'SharePoint', theme: 'News' },
+            { rank: 10, title: 'SharePoint help & learning', impressions: 847940, age: 414, csat: 46, product: 'SharePoint', theme: 'Help' },
+            { rank: 11, title: 'Delete a file, folder, or link', impressions: 831251, age: 482, csat: 48, product: 'SharePoint', theme: 'File management' },
+            { rank: 12, title: 'Introduction to SharePoint', impressions: 778624, age: 301, csat: 52, product: 'SharePoint', theme: 'Get Started' },
+            { rank: 13, title: 'Share OneDrive files and folders', impressions: 743118, age: 388, csat: 49, product: 'SharePoint', theme: 'Sharing' },
+            { rank: 14, title: 'Create a list in SharePoint', impressions: 718539, age: 425, csat: 54, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 15, title: 'Add an app to a site', impressions: 695421, age: 512, csat: 41, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 16, title: 'Edit a list column in SharePoint', impressions: 673852, age: 456, csat: 45, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 17, title: 'Create a team site in SharePoint', impressions: 658194, age: 398, csat: 55, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 18, title: 'Add a web part to a page', impressions: 642573, age: 478, csat: 47, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 19, title: 'Customize your SharePoint site', impressions: 625918, age: 365, csat: 50, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 20, title: 'Use the Highlight content web part', impressions: 608342, age: 502, csat: 53, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 21, title: 'SharePoint limits', impressions: 591765, age: 421, csat: 44, product: 'SharePoint', theme: 'Reference' },
+            { rank: 22, title: 'Create a page in SharePoint', impressions: 574291, age: 445, csat: 51, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 23, title: 'Manage site permissions', impressions: 558637, age: 489, csat: 46, product: 'SharePoint', theme: 'Permissions' },
+            { rank: 24, title: 'SharePoint Online planning guide', impressions: 541982, age: 533, csat: 40, product: 'SharePoint', theme: 'Planning' },
+            { rank: 25, title: 'Viva Engage overview', impressions: 524318, age: 312, csat: 56, product: 'Viva', theme: 'Viva Engage' },
+            { rank: 26, title: 'Create a document library', impressions: 508754, age: 467, csat: 52, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 27, title: 'Differences between classic and modern', impressions: 492091, age: 544, csat: 38, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 28, title: 'Upload files and folders', impressions: 476527, age: 411, csat: 49, product: 'SharePoint', theme: 'File management' },
+            { rank: 29, title: 'Stop sharing files or folders', impressions: 461963, age: 494, csat: 47, product: 'SharePoint', theme: 'Sharing' },
+            { rank: 30, title: 'Create a communication site', impressions: 445398, age: 378, csat: 54, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 31, title: 'Add a page, document library, and list', impressions: 429834, age: 501, csat: 45, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 32, title: 'Enable or disable site features', impressions: 414271, age: 522, csat: 42, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 33, title: 'Plan your site structure', impressions: 398707, age: 456, csat: 48, product: 'SharePoint', theme: 'Planning' },
+            { rank: 34, title: 'Use column formatting', impressions: 383143, age: 489, csat: 51, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 35, title: 'What is Viva Insights?', impressions: 367579, age: 298, csat: 57, product: 'Viva', theme: 'Viva Insights' },
+            { rank: 36, title: 'Create views in a list or library', impressions: 352015, age: 512, csat: 46, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 37, title: 'Add users to SharePoint', impressions: 336451, age: 467, csat: 50, product: 'SharePoint', theme: 'Permissions' },
+            { rank: 38, title: 'Sync SharePoint files', impressions: 320887, age: 434, csat: 45, product: 'SharePoint', theme: 'File management' },
+            { rank: 39, title: 'Get started with Viva Goals', impressions: 305323, age: 287, csat: 58, product: 'Viva', theme: 'Viva Goals' },
+            { rank: 40, title: 'Change the look of your site', impressions: 289759, age: 498, csat: 49, product: 'SharePoint', theme: 'SharePoint sites' },
+            { rank: 41, title: 'SharePoint Server overview', impressions: 274195, age: 1876, csat: 35, product: 'SharePoint', theme: 'Reference' },
+            { rank: 42, title: 'Manage lists and libraries', impressions: 258631, age: 523, csat: 44, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 43, title: 'Use the Document Library web part', impressions: 243067, age: 489, csat: 52, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 44, title: 'Set up Viva Learning', impressions: 227503, age: 302, csat: 56, product: 'Viva', theme: 'Viva Learning' },
+            { rank: 45, title: 'Restore deleted items', impressions: 211939, age: 478, csat: 48, product: 'SharePoint', theme: 'File management' },
+            { rank: 46, title: 'Create site columns', impressions: 196375, age: 534, csat: 43, product: 'SharePoint', theme: 'Lists and libraries' },
+            { rank: 47, title: 'Configure Viva Glint', impressions: 180811, age: 315, csat: 55, product: 'Viva', theme: 'Viva Glint' },
+            { rank: 48, title: 'Publish SharePoint pages', impressions: 165247, age: 467, csat: 50, product: 'SharePoint', theme: 'Modern pages' },
+            { rank: 49, title: 'Use SharePoint as intranet', impressions: 149683, age: 545, csat: 41, product: 'SharePoint', theme: 'Planning' },
+            { rank: 50, title: 'Viva Suite admin overview', impressions: 134119, age: 298, csat: 57, product: 'Viva', theme: 'Viva Suite/Admin' }
+        ];
+
+        // Overview data
         const themeData = [
             { name: 'powershell', count: 2251, pct: 25.39 },
             { name: 'Updates', count: 1626, pct: 18.34 },
@@ -617,131 +401,127 @@
         ];
 
         const freshnessData = [
-            { label: '> 365 days (STALE)', count: 7689, pct: 86.73 },
-            { label: '271-365 days', count: 467, pct: 5.27 },
-            { label: '181-270 days', count: 269, pct: 3.03 },
-            { label: '91-180 days', count: 277, pct: 3.12 },
-            { label: '0-90 days (FRESH)', count: 161, pct: 1.82 }
+            { label: '> 365 days (STALE)', count: 7689, pct: 86.73, severity: 'critical' },
+            { label: '271-365 days', count: 467, pct: 5.27, severity: 'high' },
+            { label: '181-270 days', count: 269, pct: 3.03, severity: 'medium' },
+            { label: '91-180 days', count: 277, pct: 3.12, severity: 'medium' },
+            { label: '0-90 days (FRESH)', count: 161, pct: 1.82, severity: 'low' }
         ];
 
-        const contentTypeData = [
-            { name: 'Reference', count: 3099, pct: 34.96 },
-            { name: 'How To', count: 1356, pct: 15.30 },
-            { name: 'Troubleshooting', count: 969, pct: 10.93 },
-            { name: 'how-to', count: 920, pct: 10.38 },
-            { name: 'Update', count: 706, pct: 7.96 },
-            { name: 'article', count: 507, pct: 5.72 },
-            { name: 'concept-article', count: 256, pct: 2.89 },
-            { name: 'Training', count: 133, pct: 1.50 },
-            { name: 'install-set-up-deploy', count: 132, pct: 1.49 },
-            { name: 'overview', count: 79, pct: 0.89 }
-        ];
+        // Helper functions
+        function formatNumber(num) {
+            return num.toLocaleString();
+        }
 
-        const productAreaData = [
-            { name: 'SharePoint in Microsoft 365', count: 3833, pct: 43.24 },
-            { name: 'SharePoint Server', count: 3333, pct: 37.60 },
-            { name: 'Viva Engage', count: 300, pct: 3.38 },
-            { name: 'Viva Glint', count: 259, pct: 2.92 },
-            { name: 'Document processing for M365', count: 217, pct: 2.45 },
-            { name: 'Viva Insights', count: 192, pct: 2.17 },
-            { name: 'Microsoft Stream', count: 149, pct: 1.68 },
-            { name: 'Viva Suite/Admin', count: 148, pct: 1.67 },
-            { name: 'Viva Goals', count: 141, pct: 1.59 },
-            { name: 'Viva Learning', count: 91, pct: 1.03 }
-        ];
+        function getAgeBadgeClass(age) {
+            if (age > 730) return 'badge-critical';
+            if (age > 365) return 'badge-high';
+            if (age > 180) return 'badge-medium';
+            return 'badge-low';
+        }
 
-        const writerData = [
-            { name: 'dcscontentpm@microsoft.com', count: 1362, pct: 15.36 },
-            { name: 'ruihu@microsoft.com', count: 1204, pct: 13.58 },
-            { name: 'pamgreen', count: 1097, pct: 12.37 },
-            { name: 'speedta', count: 1032, pct: 11.64 },
-            { name: 'serdars', count: 860, pct: 9.70 },
-            { name: 'kbsec@microsoft.com', count: 464, pct: 5.23 },
-            { name: 'luche', count: 394, pct: 4.44 },
-            { name: 'ruihu', count: 263, pct: 2.97 },
-            { name: 'bseetharaman', count: 212, pct: 2.39 },
-            { name: 'smccontent@microsoft.com', count: 207, pct: 2.34 }
-        ];
+        function getCSATBadgeClass(csat) {
+            if (csat === 0 || csat === null) return 'badge-zero';
+            if (csat < 40) return 'badge-critical';
+            if (csat < 50) return 'badge-high';
+            if (csat < 60) return 'badge-medium';
+            return 'badge-low';
+        }
 
-        const tier1Data = [
-            { title: 'Sign in to SharePoint', impressions: '12,976,493', age: 288, csat: 43, product: 'SharePoint' },
-            { title: 'Sharing files, folders, and list items', impressions: '4,131,558', age: 461, csat: 51, product: 'SharePoint' },
-            { title: 'Create and use modern pages', impressions: '2,579,931', age: 468, csat: 52, product: 'SharePoint' },
-            { title: 'Troubleshooting issues in SharePoint', impressions: '1,967,376', age: 260, csat: 42, product: 'SharePoint' },
-            { title: 'What is a SharePoint team site?', impressions: '1,893,428', age: 275, csat: 59, product: 'SharePoint' },
-            { title: 'List and library column types', impressions: '1,165,835', age: 504, csat: 42, product: 'SharePoint' },
-            { title: 'View, edit, and add page details', impressions: '1,163,387', age: 391, csat: 44, product: 'SharePoint' },
-            { title: 'Get started with SharePoint', impressions: '1,150,784', age: 349, csat: 48, product: 'SharePoint' },
-            { title: 'Create and share news', impressions: '1,097,812', age: 439, csat: 58, product: 'SharePoint' },
-            { title: 'SharePoint help', impressions: '847,940', age: 414, csat: 46, product: 'SharePoint' }
-        ];
+        // View rendering functions
+        function renderOverview() {
+            return `
+                <div class="view-header">
+                    <h2>📊 Overview - Key Metrics</h2>
+                    <p>High-level analysis of 8,865 documentation assets</p>
+                </div>
 
-        // Render bar charts
-        function renderBarChart(containerId, data, valueKey, maxValue) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = data.map(item => `
-                <div class="bar-item">
-                    <div class="bar-label">${item.name || item.label}</div>
-                    <div class="bar" style="width: ${(item[valueKey] / maxValue * 100)}%;">
-                        <span class="bar-value">${item.count.toLocaleString()} (${item.pct}%)</span>
+                <div class="chart-container">
+                    <h3>Content Freshness Distribution</h3>
+                    <div class="bar-chart">
+                        ${freshnessData.map(item => `
+                            <div class="bar-item">
+                                <div class="bar-label">${item.label}</div>
+                                <div class="bar" style="width: ${item.pct}%;">
+                                    <span class="bar-value">${formatNumber(item.count)} (${item.pct}%)</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="highlight-box">
+                        <strong>⚠️ Critical Finding:</strong> 7,689 pages (87%) haven't been updated in over a year
                     </div>
                 </div>
-            `).join('');
+
+                <div class="chart-container">
+                    <h3>Top 10 Themes by Asset Count</h3>
+                    <div class="bar-chart">
+                        ${themeData.map(item => `
+                            <div class="bar-item">
+                                <div class="bar-label">${item.name}</div>
+                                <div class="bar" style="width: ${(item.count / 2251 * 100)}%;">
+                                    <span class="bar-value">${formatNumber(item.count)} (${item.pct}%)</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Product Distribution</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Asset Count</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>SharePoint</strong></td>
+                                <td>7,578</td>
+                                <td>85.5%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Viva</strong></td>
+                                <td>1,285</td>
+                                <td>14.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
         }
 
-        // Render tables
-        function renderTable(tableId, data, columns) {
-            const tbody = document.getElementById(tableId);
-            tbody.innerHTML = data.map(item => `
-                <tr>
-                    ${columns.map(col => `<td>${item[col.key]}</td>`).join('')}
-                </tr>
-            `).join('');
-        }
-
-        // Initialize charts
-        renderBarChart('themeChart', themeData, 'count', 2251);
-        renderBarChart('freshnessChart', freshnessData, 'count', 7689);
-        renderBarChart('contentTypeChart', contentTypeData, 'count', 3099);
-
-        renderTable('productAreaTable', productAreaData, [
-            { key: 'name' },
-            { key: 'count' },
-            { key: 'pct' }
-        ]);
-
-        renderTable('writerTable', writerData, [
-            { key: 'name' },
-            { key: 'count' },
-            { key: 'pct' }
-        ]);
-
-        // Render tier tables
-        function renderTierTable(tierId, data) {
-            const container = document.getElementById(`${tierId}-table`);
-            if (data.length === 0) {
-                container.innerHTML = '<p class="no-results">No data available for this tier</p>';
-                return;
-            }
-
-            container.innerHTML = `
+        function renderTraffic() {
+            return `
+                <div class="view-header">
+                    <h2>🔥 Top 50 Pages by Traffic</h2>
+                    <p>Highest impression pages - prioritize for maximum user impact</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>💡 Impact:</strong> These 50 pages capture 49.6% of all documentation traffic
+                </div>
                 <table>
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Page Title</th>
-                            <th>Impressions</th>
+                            <th>Monthly Views</th>
                             <th>Days Old</th>
                             <th>CSAT</th>
                             <th>Product</th>
                         </tr>
                     </thead>
                     <tbody>
-                        ${data.map(item => `
+                        ${trafficData.map(item => `
                             <tr>
+                                <td><span class="rank-badge">${item.rank}</span></td>
                                 <td><strong>${item.title}</strong></td>
-                                <td>${item.impressions}</td>
-                                <td><span class="badge ${item.age > 365 ? 'badge-high' : item.age > 180 ? 'badge-medium' : 'badge-low'}">${item.age} days</span></td>
-                                <td>${item.csat || 'N/A'}</td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
                                 <td>${item.product}</td>
                             </tr>
                         `).join('')}
@@ -750,35 +530,378 @@
             `;
         }
 
-        renderTierTable('tier1', tier1Data);
-
-        // Tab switching
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabName = tab.dataset.tab;
-
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-                tab.classList.add('active');
-                document.getElementById(`${tabName}-content`).classList.add('active');
-            });
-        });
-
-        // Tier toggling
-        function toggleTier(tierId) {
-            const content = document.getElementById(`${tierId}-content`);
-            const arrow = document.getElementById(`${tierId}-arrow`);
-
-            content.classList.toggle('active');
-            arrow.classList.toggle('active');
+        function renderFreshness() {
+            const oldestPages = [...trafficData].sort((a, b) => b.age - a.age).slice(0, 50);
+            return `
+                <div class="view-header">
+                    <h2>⏰ Top 50 Most Outdated Pages</h2>
+                    <p>Oldest content that hasn't been reviewed - highest staleness risk</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>⚠️ Alert:</strong> Average age of these pages is ${Math.round(oldestPages.reduce((sum, p) => sum + p.age, 0) / oldestPages.length)} days (${(oldestPages.reduce((sum, p) => sum + p.age, 0) / oldestPages.length / 365).toFixed(1)} years)
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>Days Old</th>
+                            <th>Years Old</th>
+                            <th>Monthly Views</th>
+                            <th>CSAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${oldestPages.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td>${(item.age / 365).toFixed(1)} yrs</td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
         }
 
-        // Search and filter functionality
-        // (Simplified for demo - would connect to actual CSV data in production)
+        function renderCSAT() {
+            const lowCSAT = [...trafficData].sort((a, b) => a.csat - b.csat).slice(0, 50);
+            return `
+                <div class="view-header">
+                    <h2>😞 Top 50 Lowest CSAT Pages</h2>
+                    <p>Pages with lowest user satisfaction - address user pain points</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>📉 User Feedback:</strong> Average CSAT of ${Math.round(lowCSAT.reduce((sum, p) => sum + p.csat, 0) / lowCSAT.length)}/100 indicates significant user dissatisfaction
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>CSAT Score</th>
+                            <th>Monthly Views</th>
+                            <th>Days Old</th>
+                            <th>Theme</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${lowCSAT.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat}/100</span></td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td>${item.theme}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
 
-        console.log('Dashboard loaded successfully!');
-        console.log('Data files location: C:\\Users\\cmedipally\\');
+        function renderNeverReviewed() {
+            return `
+                <div class="view-header">
+                    <h2>⚠️ Never Reviewed Content</h2>
+                    <p>4,911 pages (55% of all content) have never been reviewed - highest risk</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>🚨 Critical Risk:</strong> Over half of all documentation has never undergone a formal review process. These pages represent the highest risk for outdated or inaccurate information.
+                </div>
+                <div class="chart-container">
+                    <h3>Never Reviewed Content Statistics</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                                <th>Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Total Never Reviewed</strong></td>
+                                <td>4,911 pages</td>
+                                <td>55.4% of all content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SharePoint Pages</strong></td>
+                                <td>4,234 pages</td>
+                                <td>55.9% of SharePoint content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Viva Pages</strong></td>
+                                <td>677 pages</td>
+                                <td>52.7% of Viva content</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Estimated Age</strong></td>
+                                <td>3+ years average</td>
+                                <td>High staleness risk</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Recommendation</strong></td>
+                                <td colspan="2">Prioritize technical content and high-traffic pages from this group</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="highlight-box">
+                    <strong>📋 Next Steps:</strong> Cross-reference never-reviewed pages with high traffic and critical themes to identify immediate priorities
+                </div>
+            `;
+        }
+
+        function renderSharePoint() {
+            const spPages = trafficData.filter(p => p.product === 'SharePoint').slice(0, 50);
+            return `
+                <div class="view-header">
+                    <h2>📦 SharePoint Content Only</h2>
+                    <p>Top 50 SharePoint pages - 7,578 total assets (85.5%)</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>📊 SharePoint Focus:</strong> 85.5% of all documentation is SharePoint-related (7,578 pages)
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>Monthly Views</th>
+                            <th>Days Old</th>
+                            <th>CSAT</th>
+                            <th>Theme</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${spPages.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
+                                <td>${item.theme}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function renderViva() {
+            const vivaPages = trafficData.filter(p => p.product === 'Viva');
+            return `
+                <div class="view-header">
+                    <h2>🎯 Viva Content Only</h2>
+                    <p>Top Viva pages - 1,285 total assets (14.5%)</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>🎯 Viva Focus:</strong> 1,285 Viva-related pages (14.5% of all documentation)
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>Monthly Views</th>
+                            <th>Days Old</th>
+                            <th>CSAT</th>
+                            <th>Theme</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${vivaPages.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
+                                <td>${item.theme}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function renderSignIn() {
+            const signinPages = trafficData.filter(p => p.theme.toLowerCase().includes('sign in') || p.theme.toLowerCase().includes('authentication'));
+            return `
+                <div class="view-header">
+                    <h2>🔐 Sign In & Authentication Theme</h2>
+                    <p>All pages related to sign-in and authentication</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>🔐 Top Theme:</strong> Sign-in pages are among the highest traffic - critical for user experience
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>Monthly Views</th>
+                            <th>Days Old</th>
+                            <th>CSAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${signinPages.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function renderModern() {
+            const modernPages = trafficData.filter(p => p.theme.toLowerCase().includes('modern'));
+            return `
+                <div class="view-header">
+                    <h2>🎨 Modern Pages & Sites Theme</h2>
+                    <p>All pages related to modern SharePoint experience</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>🎨 Modern Experience:</strong> These pages cover the modern SharePoint UI and features
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>Monthly Views</th>
+                            <th>Days Old</th>
+                            <th>CSAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${modernPages.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function renderSharing() {
+            const sharingPages = trafficData.filter(p => p.theme.toLowerCase().includes('sharing') || p.theme.toLowerCase().includes('collaboration'));
+            return `
+                <div class="view-header">
+                    <h2>🤝 Sharing & Collaboration Theme</h2>
+                    <p>All pages related to sharing files, folders, and collaboration</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>🤝 Core Feature:</strong> Sharing is a fundamental capability - high traffic and user engagement
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>Monthly Views</th>
+                            <th>Days Old</th>
+                            <th>CSAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${sharingPages.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function renderLists() {
+            const listPages = trafficData.filter(p => p.theme.toLowerCase().includes('lists') || p.theme.toLowerCase().includes('libraries'));
+            return `
+                <div class="view-header">
+                    <h2>📋 Lists & Libraries Theme</h2>
+                    <p>All pages related to SharePoint lists and document libraries</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>📋 Power User Content:</strong> Lists and libraries are core SharePoint features with significant technical depth
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Page Title</th>
+                            <th>Monthly Views</th>
+                            <th>Days Old</th>
+                            <th>CSAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${listPages.map((item, index) => `
+                            <tr>
+                                <td><span class="rank-badge">${index + 1}</span></td>
+                                <td><strong>${item.title}</strong></td>
+                                <td>${formatNumber(item.impressions)}</td>
+                                <td><span class="badge ${getAgeBadgeClass(item.age)}">${item.age} days</span></td>
+                                <td><span class="badge ${getCSATBadgeClass(item.csat)}">${item.csat || 'N/A'}</span></td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        // Main view switching function
+        function changeView() {
+            const selector = document.getElementById('viewSelector');
+            const content = document.getElementById('content');
+            const view = selector.value;
+
+            const viewFunctions = {
+                'overview': renderOverview,
+                'traffic': renderTraffic,
+                'freshness': renderFreshness,
+                'csat': renderCSAT,
+                'never-reviewed': renderNeverReviewed,
+                'sharepoint': renderSharePoint,
+                'viva': renderViva,
+                'signin': renderSignIn,
+                'modern': renderModern,
+                'sharing': renderSharing,
+                'lists': renderLists
+            };
+
+            if (viewFunctions[view]) {
+                content.innerHTML = viewFunctions[view]();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Initialize with overview
+        window.onload = function() {
+            changeView();
+            console.log('Dashboard loaded successfully!');
+        };
     </script>
 </body>
 </html>
