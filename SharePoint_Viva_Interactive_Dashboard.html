@@ -884,9 +884,11 @@
 
         // Main view switching function
         function changeView() {
+            console.log('changeView() called');
             const selector = document.getElementById('viewSelector');
             const content = document.getElementById('content');
             const view = selector.value;
+            console.log('Selected view:', view);
 
             const viewFunctions = {
                 'overview': renderOverview,
@@ -903,15 +905,31 @@
             };
 
             if (viewFunctions[view]) {
-                content.innerHTML = viewFunctions[view]();
+                console.log('Rendering view:', view);
+                const html = viewFunctions[view]();
+                console.log('Generated HTML length:', html.length);
+                content.innerHTML = html;
+                console.log('Content updated');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                console.error('View function not found for:', view);
             }
         }
 
         // Initialize with overview
         window.onload = function() {
-            changeView();
-            console.log('Dashboard loaded successfully!');
+            console.log('Window loaded!');
+            try {
+                const content = document.getElementById('content');
+                const selector = document.getElementById('viewSelector');
+                console.log('Content element:', content);
+                console.log('Selector element:', selector);
+                console.log('Calling changeView()...');
+                changeView();
+                console.log('Dashboard loaded successfully!');
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
         };
     </script>
 </body>
