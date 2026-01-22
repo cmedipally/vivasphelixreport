@@ -300,7 +300,7 @@
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number">8,865</div>
+                <div class="stat-number">174</div>
                 <div class="stat-label">Total Assets</div>
             </div>
             <div class="stat-card">
@@ -477,7 +477,7 @@
             return `
                 <div class="view-header">
                     <h2>📊 Overview - Key Metrics</h2>
-                    <p>High-level analysis of 8,865 documentation assets</p>
+                    <p>High-level analysis of 174 priority documentation assets (Viva Connections + SharePoint Home/News/Start)</p>
                 </div>
 
                 <div class="chart-container">
@@ -760,7 +760,7 @@
 
         function renderPhased() {
             const top50Traffic = trafficData.reduce((sum, p) => sum + p.impressions, 0);
-            const totalTraffic = 95331974; // Estimated total traffic across all 8,865 pages
+            const totalTraffic = allPagesData.reduce((sum, p) => sum + p.impressions, 0); // Total traffic across all 174 filtered pages
 
             // Phase boundaries based on cumulative traffic
             const phase1Pages = trafficData.slice(0, 6);  // Pages 1-6 → 25.9% coverage
@@ -1088,8 +1088,8 @@
         }
 
         function renderRoadmap() {
-            const totalPages = 8865;
-            const totalTraffic = 95331974;
+            const totalPages = 174;
+            const totalTraffic = allPagesData.reduce((sum, p) => sum + p.impressions, 0);
 
             return `
                 <div class="view-header">
@@ -1127,7 +1127,7 @@
                         </div>
                         <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #f8bbd0 0%, #f48fb1 100%); border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
                             <div style="font-size: 2.5em; font-weight: bold; color: #880e4f;">100%</div>
-                            <div style="color: #880e4f; font-weight: 600; margin-top: 5px;">All 8,865 pages</div>
+                            <div style="color: #880e4f; font-weight: 600; margin-top: 5px;">All 174 pages</div>
                             <div style="color: #880e4f; font-size: 0.9em; margin-top: 5px;">⚠️ Not Recommended</div>
                         </div>
                     </div>
@@ -1233,14 +1233,14 @@
                 </div>
 
                 <div class="chart-container" style="border-left: 6px solid #e91e63;">
-                    <h3 style="color: #880e4f;">⚠️ PHASE 7: 100% Coverage (Pages 501-8,865)</h3>
-                    <p style="font-size: 1.1em;">Remaining 8,365 pages - Final 20% coverage</p>
+                    <h3 style="color: #880e4f;">⚠️ PHASE 7: 100% Coverage (Pages 140-174)</h3>
+                    <p style="font-size: 1.1em;">Remaining 35 pages - Final coverage to 100%</p>
                     <div style="background: #fce4ec; padding: 20px; border-radius: 6px; margin-top: 15px;">
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
                             <div>
-                                <strong>Pages:</strong> 8,365 (501-8,865)<br>
-                                <strong>Additional Coverage:</strong> +20%<br>
-                                <strong>Additional Traffic:</strong> ~19M views/month
+                                <strong>Pages:</strong> 35 (140-174)<br>
+                                <strong>Additional Coverage:</strong> ~0.1%<br>
+                                <strong>Additional Traffic:</strong> Minimal
                             </div>
                             <div>
                                 <strong>Effort:</strong> 2-3 YEARS<br>

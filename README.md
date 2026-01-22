@@ -9,53 +9,54 @@ Interactive dashboard and analysis tools for preparing SharePoint and Viva docum
 
 ## 📊 Executive Summary
 
-### The Challenge
-- **8,865 documentation assets** analyzed
-- **87% of content is over 1 year old** (critical issue)
-- **Average age: 3+ years** since last review
-- **CSAT score: 47/100** (below satisfactory)
-- **Product refresh launching in 30 days**
+### Dataset Scope (Filtered)
+- **174 priority documentation assets** (filtered from 8,865 total)
+- **Focus areas:** Viva Connections + SharePoint Home, Homesite, News, and Start
+- **Viva:** 34 Viva Connections pages
+- **SharePoint:** 140 pages (Home/Homesite/News/Start)
+- **Top 50 pages cover 97% of traffic** for these areas
 
 ### The Solution
-Update **297 high-impact pages (3.3% of content)** to reach **55% of users**
+Update **top 50 high-impact pages** to reach **97% of users** in these priority areas
 
-## 🎯 Priority Framework
+## 🎯 Priority Framework (Filtered Dataset)
 
-### Tier 1: CRITICAL (50 pages)
-- **Traffic Impact:** 49.6%
-- **Average Age:** 409 days
-- **Focus:** High-traffic pages (Sign in, Sharing, Modern pages)
-- **Timeline:** Weeks 1-2
+### Phase 1: Critical Launch Blockers (6 pages)
+- **Traffic Impact:** 70% of filtered dataset
+- **Focus:** Top 6 highest-traffic pages
+- **Timeline:** Pre-launch
 
-### Tier 2: TECHNICAL (50 pages)
-- **Traffic Impact:** 0.5%
-- **Average Age:** 2,170 days (6 years!)
-- **Focus:** IT Pro/Admin content, PowerShell, Server admin
-- **Timeline:** Weeks 3-4
+### Phase 2: High-Impact Quick Wins (19 pages)
+- **Traffic Impact:** 89% cumulative coverage
+- **Focus:** Pages 7-25
+- **Timeline:** Weeks 1-3
 
-### Tier 3: USER SATISFACTION (50 pages)
-- **Traffic Impact:** 0.9%
-- **CSAT:** 0/100 (critical dissatisfaction)
-- **Focus:** Pages with user pain points
-- **Timeline:** Week 5
+### Phase 3: Top 50 Completion (25 pages)
+- **Traffic Impact:** 97% cumulative coverage
+- **Focus:** Pages 26-50 - Recommended target
+- **Timeline:** Weeks 4-6
 
-### Tier 4: STRATEGIC (147 pages)
-- **Traffic Impact:** 4.2%
-- **Average Age:** 1,621 days
-- **Focus:** Entry points, "Get Started", landing pages
-- **Timeline:** Week 6
+### Phase 4: Extended Coverage (89 pages)
+- **Traffic Impact:** 99.9% cumulative coverage
+- **Focus:** Pages 51-139
+- **Timeline:** Q2-Q4
+
+### Phase 5: Complete Coverage (35 pages)
+- **Traffic Impact:** 100% (minimal additional <0.1%)
+- **Focus:** Pages 140-174
+- **Timeline:** Ongoing/maintenance
 
 ## 📈 Key Metrics
 
 | Metric | Value | Impact |
 |--------|-------|--------|
-| Total Assets | 8,865 | Full dataset |
-| SharePoint | 7,578 (85.5%) | Primary focus |
-| Viva | 1,285 (14.5%) | Secondary focus |
-| Stale Content (>1yr) | 7,689 (87%) | ⚠️ Critical |
-| Never Reviewed | 4,911 (55%) | ⚠️ High risk |
-| Avg CSAT | 47/100 | Below target |
-| Top Page Traffic | 12.9M views | Sign in to SharePoint |
+| Total Assets | 174 | Filtered priority pages |
+| SharePoint | 140 (80.5%) | Home/News/Start |
+| Viva | 34 (19.5%) | Viva Connections |
+| Total Traffic | 3.69M views | Combined impressions |
+| Top Page Traffic | 1.1M views | Create and share news |
+| Top 6 Pages | 70% coverage | Critical focus |
+| Top 50 Pages | 97% coverage | Recommended target |
 
 ## 🗂️ What's Included
 
