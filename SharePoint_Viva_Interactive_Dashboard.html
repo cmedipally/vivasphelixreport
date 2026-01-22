@@ -512,7 +512,7 @@
                 </div>
 
                 <div class="chart-container">
-                    <h3>Product Distribution</h3>
+                    <h3>Product Distribution (Filtered Dataset)</h3>
                     <table>
                         <thead>
                             <tr>
@@ -524,13 +524,13 @@
                         <tbody>
                             <tr>
                                 <td><strong>SharePoint</strong></td>
-                                <td>7,578</td>
-                                <td>85.5%</td>
+                                <td>140</td>
+                                <td>80.5%</td>
                             </tr>
                             <tr>
                                 <td><strong>Viva</strong></td>
-                                <td>1,285</td>
-                                <td>14.5%</td>
+                                <td>34</td>
+                                <td>19.5%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -553,7 +553,7 @@
             // Define all phases with their page ranges
             const phases = [
                 {
-                    title: '🚀 Phase 1: Critical Launch Blockers',
+                    title: 'Phase 1: Top 6 Pages (70% Traffic)',
                     pages: allPagesData.slice(0, 6),
                     coverage: '70',
                     color: '#7cb342',
@@ -562,7 +562,7 @@
                     pageRange: '1-6'
                 },
                 {
-                    title: '⚡ Phase 2: High-Impact Quick Wins',
+                    title: 'Phase 2: Pages 7-25 (89% Traffic)',
                     pages: allPagesData.slice(6, 25),
                     coverage: '89',
                     color: '#fb8c00',
@@ -571,7 +571,7 @@
                     pageRange: '7-25'
                 },
                 {
-                    title: '📦 Phase 3: Top 50 Completion',
+                    title: 'Phase 3: Pages 26-50 (97% Traffic)',
                     pages: allPagesData.slice(25, 50),
                     coverage: '97',
                     color: '#e91e63',
@@ -580,16 +580,16 @@
                     pageRange: '26-50'
                 },
                 {
-                    title: '🎯 Phase 4: Path to 80% Coverage (by page count)',
+                    title: 'Phase 4: Pages 51-139 (99.9% Traffic)',
                     pages: allPagesData.slice(50, 139),
                     coverage: '99.9',
                     color: '#9c27b0',
-                    description: 'Pages 51-139 - covers 80% of pages (by count), reaching 99.9% of traffic. Diminishing returns beyond Phase 3.',
+                    description: 'Pages 51-139 - reaching 99.9% of traffic. Diminishing returns beyond Phase 3.',
                     timeline: 'Q2-Q4',
                     pageRange: '51-139'
                 },
                 {
-                    title: '⚠️ Phase 5: Complete Coverage (100%)',
+                    title: 'Phase 5: Pages 140-174 (100% Complete)',
                     pages: allPagesData.slice(139),
                     coverage: '100',
                     color: '#607d8b',
