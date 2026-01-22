@@ -426,6 +426,20 @@
             }
         }
 
+        // Toggle phase expansion/collapse
+        function togglePhase(phaseId) {
+            const phaseContent = document.getElementById(phaseId);
+            const button = document.getElementById(phaseId + '-btn');
+
+            if (phaseContent.style.display === 'none') {
+                phaseContent.style.display = 'block';
+                button.innerHTML = '▲ Collapse';
+            } else {
+                phaseContent.style.display = 'none';
+                button.innerHTML = '▼ Expand';
+            }
+        }
+
         // Status tracking functions
         function getPageStatuses() {
             const stored = localStorage.getItem('pageStatuses');
@@ -595,12 +609,25 @@
                 const phaseNotStarted = phasePages.filter(p => (statuses[p.rank] || 'Not Started') === 'Not Started').length;
                 const phaseWontDo = phasePages.filter(p => statuses[p.rank] === "Won't Do").length;
                 const phaseCompletionRate = ((phaseCompleted / phasePages.length) * 100).toFixed(1);
+                const phaseId = 'phase-' + index;
 
                 return `
                     <div class="chart-container" style="border-left: 6px solid ${phase.color};">
-                        <h3 style="color: ${phase.color};">${phase.title}</h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <h3 style="color: ${phase.color}; margin: 0;">${phase.title}</h3>
+                            <button
+                                onclick="togglePhase('${phaseId}')"
+                                style="padding: 8px 16px; background: ${phase.color}; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; transition: opacity 0.3s;"
+                                onmouseover="this.style.opacity='0.8'"
+                                onmouseout="this.style.opacity='1'"
+                                id="${phaseId}-btn"
+                            >
+                                ▼ Expand
+                            </button>
+                        </div>
                         <p style="font-size: 1.1em; margin-bottom: 20px;">${phase.description}</p>
 
+                        <div id="${phaseId}" style="display: none;">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-bottom: 25px;">
                             <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
                                 <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Pages</div>
@@ -683,6 +710,7 @@
                                 `}).join('')}
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 `;
             };
