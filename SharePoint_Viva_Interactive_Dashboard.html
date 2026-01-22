@@ -322,11 +322,13 @@
         </div>
 
         <div class="controls">
-            <div class="control-group">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 0;">
+                <button onclick="changeView('overview')" id="tab-overview" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-bottom: 3px solid #667eea; cursor: pointer; font-weight: 600; transition: all 0.3s;">📊 Overview</button>
+                <button onclick="changeView('execution')" id="tab-execution" style="padding: 12px 24px; background: white; color: #667eea; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-weight: 600; transition: all 0.3s;">🎯 Execution Plan</button>
+            </div>
+            <div class="control-group" id="viewSelectorGroup" style="display: none;">
                 <label>🔍 Select View</label>
                 <select id="viewSelector" onchange="changeView()">
-                    <option value="overview">📊 Overview - Key Metrics & Charts</option>
-                    <option value="execution">🎯 Execution Plan - All Phases with Progress Tracking</option>
                     <option value="ownership">👥 Product Area Ownership - Divide & Conquer</option>
                     <option value="traffic">🔥 By Traffic - Top Pages by Views</option>
                     <option value="freshness">⏰ By Freshness - Most Outdated Content</option>
@@ -705,41 +707,8 @@
 
             return `
                 <div class="view-header">
-                    <h2>🎯 Execution Plan - All Phases with Progress Tracking</h2>
-                    <p>Complete roadmap from 50% to 100% coverage with real-time progress tracking</p>
-                </div>
-
-                <div style="background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="margin-top: 0;">📊 Overall Progress Summary</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 20px;">
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #27ae6022 0%, #27ae6010 100%); border-radius: 8px; border: 2px solid #27ae60;">
-                            <div style="font-size: 2.5em; font-weight: bold; color: #27ae60;">${completedCount}</div>
-                            <div style="color: #666; font-weight: 600; margin-top: 5px;">Completed</div>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #3498db22 0%, #3498db10 100%); border-radius: 8px; border: 2px solid #3498db;">
-                            <div style="font-size: 2.5em; font-weight: bold; color: #3498db;">${inProgressCount}</div>
-                            <div style="color: #666; font-weight: 600; margin-top: 5px;">In Progress</div>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #95a5a622 0%, #95a5a610 100%); border-radius: 8px; border: 2px solid #95a5a6;">
-                            <div style="font-size: 2.5em; font-weight: bold; color: #95a5a6;">${notStartedCount}</div>
-                            <div style="color: #666; font-weight: 600; margin-top: 5px;">Not Started</div>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #e74c3c22 0%, #e74c3c10 100%); border-radius: 8px; border: 2px solid #e74c3c;">
-                            <div style="font-size: 2.5em; font-weight: bold; color: #e74c3c;">${wontDoCount}</div>
-                            <div style="color: #666; font-weight: 600; margin-top: 5px;">Won't Do</div>
-                        </div>
-                    </div>
-
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                        <strong style="font-size: 1.1em;">Top 50 Pages Completion Rate:</strong> ${completionRate}%
-                        <div style="margin-top: 12px; background: #e0e0e0; height: 16px; border-radius: 8px; overflow: hidden;">
-                            <div style="width: ${completionRate}%; height: 100%; background: linear-gradient(90deg, #27ae60, #2ecc71); transition: width 0.5s;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="highlight-box" style="background: #e3f2fd; border-left-color: #2196f3;">
-                    <strong>🗺️ Roadmap:</strong> Phases 1-3 cover the top 50 pages (50% coverage). Phases 4-6 extend to 80% (recommended goal). Phase 7 covers all pages but is not recommended.
+                    <h2>🎯 Execution Plan</h2>
+                    <p>All phases with owner assignment and progress tracking</p>
                 </div>
 
                 ${phases.map((phase, index) => renderPhaseSection(phase, index)).join('')}
@@ -1749,12 +1718,31 @@
         }
 
         // Main view switching function
-        function changeView() {
-            console.log('changeView() called');
+        function changeView(viewParam) {
+            console.log('changeView() called with param:', viewParam);
             const selector = document.getElementById('viewSelector');
             const content = document.getElementById('content');
-            const view = selector.value;
+
+            // Get view from parameter or selector
+            const view = viewParam || (selector ? selector.value : 'overview');
             console.log('Selected view:', view);
+
+            // Update tab styling
+            const tabs = ['overview', 'execution'];
+            tabs.forEach(tab => {
+                const tabBtn = document.getElementById('tab-' + tab);
+                if (tabBtn) {
+                    if (tab === view) {
+                        tabBtn.style.background = '#667eea';
+                        tabBtn.style.color = 'white';
+                        tabBtn.style.borderBottom = '3px solid #667eea';
+                    } else {
+                        tabBtn.style.background = 'white';
+                        tabBtn.style.color = '#667eea';
+                        tabBtn.style.borderBottom = '3px solid transparent';
+                    }
+                }
+            });
 
             const viewFunctions = {
                 'overview': renderOverview,
@@ -1795,11 +1783,9 @@
             console.log('Window loaded!');
             try {
                 const content = document.getElementById('content');
-                const selector = document.getElementById('viewSelector');
                 console.log('Content element:', content);
-                console.log('Selector element:', selector);
                 console.log('Calling changeView()...');
-                changeView();
+                changeView('overview');
                 console.log('Dashboard loaded successfully!');
             } catch (error) {
                 console.error('Error loading dashboard:', error);
