@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Test</title>
+</head>
+<body>
+    <h1>Test Dashboard</h1>
+    <select id="viewSelector" onchange="changeView()">
+        <option value="test1">Test 1</option>
+        <option value="test2">Test 2</option>
+    </select>
+    <div id="content" style="border: 1px solid red; padding: 20px; margin: 20px;">
+        Loading...
+    </div>
+
+    <script>
+        function changeView() {
+            console.log('changeView called');
+            const selector = document.getElementById('viewSelector');
+            const content = document.getElementById('content');
+            const view = selector.value;
+            console.log('Selected:', view);
+
+            if (view === 'test1') {
+                content.innerHTML = '<h2>Test 1 Content</h2><p>This is test 1</p>';
+            } else {
+                content.innerHTML = '<h2>Test 2 Content</h2><p>This is test 2</p>';
+            }
+        }
+
+        window.onload = function() {
+            console.log('Page loaded');
+            changeView();
+        };
+    </script>
+</body>
+</html>
