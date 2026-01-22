@@ -43,6 +43,39 @@ def determine_theme(row):
 
     return 'Other'
 
+def should_include_page(row):
+    """
+    Filter pages based on team requirements:
+    - Viva: Only pages with Product Area = "Viva Connections"
+    - SharePoint: Only pages related to Home, Homesite, News, or Start
+    """
+    product = row.get('Product', '').strip()
+    product_area = row.get('Product Area', '').strip()
+    title = row.get('TopicTitle', '').strip().lower()
+
+    # For Viva product: only include Viva Connections
+    if product == 'Viva':
+        return product_area == 'Viva Connections'
+
+    # For SharePoint product: only include Home/Homesite/News/Start pages
+    if product == 'SharePoint':
+        # Check for SharePoint News pages
+        if 'news' in title:
+            return True
+
+        # Check for SharePoint Start page (excluding "get started" pages)
+        if 'start' in title and 'started' not in title:
+            return True
+
+        # Check for SharePoint Home/Homesite pages
+        if 'home' in title or 'homesite' in title:
+            return True
+
+        return False
+
+    # Exclude all other products
+    return False
+
 # Read CSV file
 csv_file = r'C:\Users\cmedipally\OneDrive - Microsoft\Desktop\Documentation\VSPSites.csv'
 output_file = r'C:\Users\cmedipally\vivasphelixreport\all_pages_data.js'
@@ -51,15 +84,27 @@ pages = []
 rank = 1
 
 print("Reading CSV file...")
+total_rows = 0
+filtered_out = 0
+zero_impressions = 0
+
 with open(csv_file, 'r', encoding='utf-8-sig') as f:
     reader = csv.DictReader(f)
 
     for row in reader:
         try:
+            total_rows += 1
+
+            # Apply product/area filtering first
+            if not should_include_page(row):
+                filtered_out += 1
+                continue
+
             impressions = parse_impressions(row.get('Impressions', '0'))
 
             # Skip pages with 0 impressions
             if impressions == 0:
+                zero_impressions += 1
                 continue
 
             page = {
@@ -79,6 +124,12 @@ with open(csv_file, 'r', encoding='utf-8-sig') as f:
         except Exception as e:
             print(f"Error processing row {rank}: {e}")
             continue
+
+print(f"\nFiltering Summary:")
+print(f"  Total rows in CSV: {total_rows}")
+print(f"  Filtered out (not Viva Connections or SP Home/News/Start): {filtered_out}")
+print(f"  Excluded (zero impressions): {zero_impressions}")
+print(f"  Included in dataset: {len(pages)}")
 
 # Sort by impressions descending
 pages.sort(key=lambda x: x['impressions'], reverse=True)
