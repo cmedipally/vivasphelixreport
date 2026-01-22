@@ -592,7 +592,8 @@
                     coverage: '26',
                     color: '#7cb342',
                     description: 'Top 6 pages - absolute highest priority. Update BEFORE launch to reach 1 in 4 users.',
-                    timeline: 'Pre-launch'
+                    timeline: 'Pre-launch',
+                    pageRange: '1-6'
                 },
                 {
                     title: '⚡ Phase 2: High-Impact Quick Wins',
@@ -600,7 +601,8 @@
                     coverage: '40',
                     color: '#fb8c00',
                     description: 'Pages 7-25 - add significant reach. Complete within 2-3 weeks post-launch.',
-                    timeline: 'Weeks 1-3'
+                    timeline: 'Weeks 1-3',
+                    pageRange: '7-25'
                 },
                 {
                     title: '📦 Phase 3: Top 50 Completion',
@@ -608,71 +610,113 @@
                     coverage: '50',
                     color: '#e91e63',
                     description: 'Pages 26-50 - complete the top 50 to reach half of all users.',
-                    timeline: 'Weeks 4-6'
+                    timeline: 'Weeks 4-6',
+                    pageRange: '26-50'
                 },
                 {
-                    title: '📋 Phase 4: Next 50 (Pages 51-100)',
-                    pages: [],
-                    coverage: '60',
-                    color: '#9c27b0',
-                    description: 'Next 50 pages for 60% total coverage. Expand to top 100 pages.',
-                    timeline: 'Q1 Post-launch',
-                    future: true
-                },
-                {
-                    title: '📊 Phase 5: Top 200 (Pages 101-200)',
-                    pages: [],
-                    coverage: '70',
-                    color: '#673ab7',
-                    description: '100 more pages to reach 70% coverage. Building comprehensive coverage.',
-                    timeline: 'Q2 Post-launch',
-                    future: true
-                },
-                {
-                    title: '🎯 Phase 6: Top 500 (Pages 201-500)',
+                    title: '🎯 Phase 4: Path to 80% Coverage',
                     pages: [],
                     coverage: '80',
-                    color: '#3f51b5',
-                    description: '300 pages to hit recommended 80% coverage goal. Optimal stopping point.',
-                    timeline: 'Q3-Q4',
-                    future: true
+                    color: '#9c27b0',
+                    description: 'Pages 51-500 - Expand to top 500 pages to reach 80% coverage. This is the recommended goal for optimal ROI.',
+                    timeline: 'Q1-Q4 Post-launch',
+                    pageRange: '51-500',
+                    placeholder: true,
+                    placeholderCount: 450
                 },
                 {
-                    title: '⚠️ Phase 7: All Pages (501-8,865)',
+                    title: '⚠️ Phase 5: Complete Coverage (100%)',
                     pages: [],
                     coverage: '100',
                     color: '#607d8b',
-                    description: '8,365 pages for 100% coverage. NOT RECOMMENDED - diminishing returns.',
+                    description: 'All 8,865 pages for 100% coverage. NOT RECOMMENDED - requires 2-3 years with diminishing returns. Better to focus on 80% and maintain.',
                     timeline: '2-3 years',
-                    future: true,
+                    pageRange: '501-8,865',
+                    placeholder: true,
+                    placeholderCount: 8365,
                     notRecommended: true
                 }
             ];
 
             const renderPhaseSection = (phase, index) => {
-                if (phase.future) {
-                    // Future phases - summary only
+                if (phase.placeholder) {
+                    // Placeholder phases - show structure with empty rows for future planning
                     return `
-                        <div class="chart-container" style="border-left: 6px solid ${phase.color}; ${phase.notRecommended ? 'opacity: 0.7;' : ''}">
+                        <div class="chart-container" style="border-left: 6px solid ${phase.color}; ${phase.notRecommended ? 'opacity: 0.85;' : ''}">
                             <h3 style="color: ${phase.color};">${phase.title}</h3>
                             <p style="font-size: 1.1em; margin-bottom: 20px;">${phase.description}</p>
 
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                                <div style="background: ${phase.color}15; padding: 20px; border-radius: 8px; border: 2px solid ${phase.color};">
-                                    <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">Target Coverage</div>
-                                    <div style="font-size: 2.5em; font-weight: bold; color: ${phase.color};">${phase.coverage}%</div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Page Range</div>
+                                    <div style="font-size: 1.8em; font-weight: bold; color: ${phase.color};">${phase.pageRange}</div>
                                 </div>
-                                <div style="background: ${phase.color}15; padding: 20px; border-radius: 8px; border: 2px solid ${phase.color};">
-                                    <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">Timeline</div>
-                                    <div style="font-size: 1.5em; font-weight: bold; color: ${phase.color};">${phase.timeline}</div>
+                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Total Pages</div>
+                                    <div style="font-size: 1.8em; font-weight: bold; color: ${phase.color};">${phase.placeholderCount}</div>
+                                </div>
+                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Coverage</div>
+                                    <div style="font-size: 1.8em; font-weight: bold; color: ${phase.color};">${phase.coverage}%</div>
+                                </div>
+                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Timeline</div>
+                                    <div style="font-size: 1.3em; font-weight: bold; color: ${phase.color};">${phase.timeline}</div>
                                 </div>
                                 ${phase.notRecommended ? `
-                                    <div style="background: #ffebee; padding: 20px; border-radius: 8px; border: 2px solid #e74c3c;">
-                                        <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">Status</div>
+                                    <div style="background: #ffebee; padding: 15px; border-radius: 8px; border: 2px solid #e74c3c;">
+                                        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Status</div>
                                         <div style="font-size: 1.3em; font-weight: bold; color: #e74c3c;">❌ Not Viable</div>
                                     </div>
-                                ` : ''}
+                                ` : `
+                                    <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; border: 2px solid #27ae60;">
+                                        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Status</div>
+                                        <div style="font-size: 1.3em; font-weight: bold; color: #27ae60;">✅ Recommended</div>
+                                    </div>
+                                `}
                             </div>
+
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid ${phase.color};">
+                                <strong>📝 Planning Notes:</strong>
+                                <ul style="margin: 10px 0 0 20px; padding: 0;">
+                                    ${phase.notRecommended ? `
+                                        <li>This phase covers the remaining ${phase.placeholderCount.toLocaleString()} pages</li>
+                                        <li>Many pages receive <100 views/month (very low traffic)</li>
+                                        <li>Estimated effort: 2-3 years with 10+ writers</li>
+                                        <li><strong>Recommendation:</strong> Focus on Phase 4 (80%) instead</li>
+                                        <li>Better to update these pages reactively when product changes require it</li>
+                                    ` : `
+                                        <li>This phase covers pages ${phase.pageRange} (${phase.placeholderCount} pages)</li>
+                                        <li>Achieves ${phase.coverage}% traffic coverage - optimal ROI</li>
+                                        <li>Estimated effort: 6-12 months with 5-8 writers</li>
+                                        <li><strong>This is the recommended stopping point</strong></li>
+                                        <li>After completion, shift to quarterly maintenance mode</li>
+                                    `}
+                                </ul>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Page Title</th>
+                                        <th>Monthly Views</th>
+                                        <th>Days Old</th>
+                                        <th>CSAT</th>
+                                        <th>Owner</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="7" style="text-align: center; padding: 40px 20px; color: #666; font-style: italic; background: #f8f9fa;">
+                                            <div style="font-size: 1.2em; margin-bottom: 10px;">📊 Future Phase Planning Area</div>
+                                            <div>Page details will be added here as you expand beyond the top 50 pages.</div>
+                                            <div style="margin-top: 10px; color: #999;">To populate this phase, you'll need to import additional page data from your analytics system.</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     `;
                 }
