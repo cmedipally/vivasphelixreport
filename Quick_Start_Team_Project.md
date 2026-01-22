@@ -19,8 +19,9 @@
 
 3. **Add Description**
    ```
-   Interactive analysis of 8,865 documentation assets for product refresh planning.
-   Dataset includes traffic, CSAT, freshness metrics, and prioritization framework.
+   Interactive analysis of 174 priority documentation assets for product refresh planning.
+   Filtered dataset: Viva Connections + SharePoint Home/News/Start pages.
+   Includes traffic, CSAT, freshness metrics, and prioritization framework.
    ```
 
 ---
@@ -31,7 +32,7 @@
 
 #### **File 1: The Raw Dataset**
 📁 **File:** `C:\Users\cmedipally\OneDrive - Microsoft\Desktop\Documentation\VSPSites.csv`
-📝 **Description:** Complete dataset - 8,865 assets with 30 columns
+📝 **Description:** Complete dataset - Source data (8,865 total, filtered to 174 priority assets)
 
 #### **File 2: Analysis Context**
 📁 **File:** `C:\Users\cmedipally\Claude_Project_Context.txt`
@@ -52,10 +53,10 @@ You are an expert content strategist helping teams prepare for the SharePoint
 and Viva product refresh launching in 30 days.
 
 CONTEXT:
-- You have access to VSPSites.csv with 8,865 documentation assets
-- Pre-computed analysis with 4-tier prioritization framework
-- 87% of content is over 1 year old (critical issue)
-- Goal: Update 297 pages to reach 55% of users
+- You have access to 174 filtered priority documentation assets
+- Focus: Viva Connections + SharePoint Home/News/Start pages
+- Pre-computed analysis with 5-phase prioritization framework
+- Goal: Update top 50 pages to reach 97% of users in priority areas
 
 YOUR ROLE:
 - Answer questions about the dataset with specific data
