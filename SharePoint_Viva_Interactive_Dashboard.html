@@ -304,19 +304,19 @@
                 <div class="stat-label">Total Assets</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">87%</div>
+                <div class="stat-number">69%</div>
                 <div class="stat-label">Over 1 Year Old</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">47</div>
+                <div class="stat-number">49</div>
                 <div class="stat-label">Avg CSAT Score</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">297</div>
+                <div class="stat-number">50</div>
                 <div class="stat-label">Recommended Updates</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">55%</div>
+                <div class="stat-number">97%</div>
                 <div class="stat-label">Traffic Coverage</div>
             </div>
         </div>
@@ -358,26 +358,26 @@
         // Use top 50 from all pages data for backwards compatibility with existing views
         const trafficData = allPagesData.slice(0, 50);
 
-        // Overview data
+        // Overview data (filtered dataset)
         const themeData = [
-            { name: 'powershell', count: 2251, pct: 25.39 },
-            { name: 'Updates', count: 1626, pct: 18.34 },
-            { name: 'sharepoint', count: 1578, pct: 17.80 },
-            { name: 'viva', count: 879, pct: 9.92 },
-            { name: 'microsoft-365', count: 243, pct: 2.74 },
-            { name: 'Lists and libraries', count: 173, pct: 1.95 },
-            { name: 'Formulas/functions', count: 129, pct: 1.46 },
-            { name: 'Viva Engage', count: 93, pct: 1.05 },
-            { name: 'File management', count: 73, pct: 0.82 },
-            { name: 'SharePoint sites', count: 71, pct: 0.80 }
+            { name: 'powershell', count: 47, pct: 27.0 },
+            { name: 'viva', count: 28, pct: 16.1 },
+            { name: 'sharepoint', count: 22, pct: 12.6 },
+            { name: 'How To', count: 21, pct: 12.1 },
+            { name: 'SharePoint pages', count: 11, pct: 6.3 },
+            { name: 'SharePoint sites', count: 8, pct: 4.6 },
+            { name: 'Get started', count: 6, pct: 3.4 },
+            { name: 'Training', count: 6, pct: 3.4 },
+            { name: 'SharePoint in Microsoft 365', count: 4, pct: 2.3 },
+            { name: 'Templates', count: 4, pct: 2.3 }
         ];
 
         const freshnessData = [
-            { label: '> 365 days (STALE)', count: 7689, pct: 86.73, severity: 'critical' },
-            { label: '271-365 days', count: 467, pct: 5.27, severity: 'high' },
-            { label: '181-270 days', count: 269, pct: 3.03, severity: 'medium' },
-            { label: '91-180 days', count: 277, pct: 3.12, severity: 'medium' },
-            { label: '0-90 days (FRESH)', count: 161, pct: 1.82, severity: 'low' }
+            { label: '> 365 days (STALE)', count: 55, pct: 68.8, severity: 'critical' },
+            { label: '271-365 days', count: 22, pct: 27.5, severity: 'high' },
+            { label: '181-270 days', count: 0, pct: 0, severity: 'medium' },
+            { label: '91-180 days', count: 2, pct: 2.5, severity: 'medium' },
+            { label: '0-90 days (FRESH)', count: 1, pct: 1.2, severity: 'low' }
         ];
 
         // Helper functions
@@ -493,7 +493,7 @@
                         `).join('')}
                     </div>
                     <div class="highlight-box">
-                        <strong>⚠️ Critical Finding:</strong> 7,689 pages (87%) haven't been updated in over a year
+                        <strong>⚠️ Critical Finding:</strong> 55 pages (69% of pages with age data) haven't been updated in over a year
                     </div>
                 </div>
 
