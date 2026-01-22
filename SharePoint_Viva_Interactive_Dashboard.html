@@ -326,6 +326,7 @@
                 <label>🔍 Select View</label>
                 <select id="viewSelector" onchange="changeView()">
                     <option value="overview">📊 Overview - Key Metrics & Charts</option>
+                    <option value="ownership">👥 Product Area Ownership - Divide & Conquer</option>
                     <option value="traffic">🔥 By Traffic - Top Pages by Views</option>
                     <option value="freshness">⏰ By Freshness - Most Outdated Content</option>
                     <option value="csat">😞 By CSAT - Lowest User Satisfaction</option>
@@ -505,6 +506,101 @@
                         </tbody>
                     </table>
                 </div>
+            `;
+        }
+
+        function renderOwnership() {
+            // Group pages by theme/feature area
+            const areaGroups = {};
+            trafficData.forEach(page => {
+                if (!areaGroups[page.theme]) {
+                    areaGroups[page.theme] = [];
+                }
+                areaGroups[page.theme].push(page);
+            });
+
+            // Calculate metrics for each area
+            const areaSummary = Object.keys(areaGroups).map(theme => {
+                const pages = areaGroups[theme];
+                const totalImpressions = pages.reduce((sum, p) => sum + p.impressions, 0);
+                const avgAge = Math.round(pages.reduce((sum, p) => sum + (p.age || 0), 0) / pages.length);
+                const avgCSAT = Math.round(pages.reduce((sum, p) => sum + (p.csat || 0), 0) / pages.filter(p => p.csat).length);
+                const oldPages = pages.filter(p => (p.age || 0) > 365).length;
+
+                return {
+                    theme,
+                    pageCount: pages.length,
+                    totalImpressions,
+                    avgAge,
+                    avgCSAT,
+                    oldPages,
+                    pages: pages.sort((a, b) => b.impressions - a.impressions)
+                };
+            }).sort((a, b) => b.totalImpressions - a.totalImpressions);
+
+            return `
+                <div class="view-header">
+                    <h2>👥 Product Area Ownership - Divide & Conquer</h2>
+                    <p>Group pages by feature area to assign ownership among product managers</p>
+                </div>
+                <div class="highlight-box">
+                    <strong>🎯 Strategy:</strong> ${areaSummary.length} distinct feature areas identified. Each PM can claim 1-2 areas based on domain expertise.
+                </div>
+
+                ${areaSummary.map((area, index) => `
+                    <div class="chart-container">
+                        <h3>${index + 1}. ${area.theme} <span style="color: #667eea;">(${area.pageCount} pages)</span></h3>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; border-left: 4px solid #667eea;">
+                                <strong style="color: #667eea;">Total Traffic:</strong><br>
+                                <span style="font-size: 1.2em; font-weight: bold;">${formatNumber(area.totalImpressions)}</span>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; border-left: 4px solid #f39c12;">
+                                <strong style="color: #f39c12;">Avg Age:</strong><br>
+                                <span style="font-size: 1.2em; font-weight: bold;">${area.avgAge} days</span>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; border-left: 4px solid #e74c3c;">
+                                <strong style="color: #e74c3c;">Stale Pages:</strong><br>
+                                <span style="font-size: 1.2em; font-weight: bold;">${area.oldPages} / ${area.pageCount}</span>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 12px; border-radius: 6px; border-left: 4px solid #27ae60;">
+                                <strong style="color: #27ae60;">Avg CSAT:</strong><br>
+                                <span style="font-size: 1.2em; font-weight: bold;">${area.avgCSAT || 'N/A'}</span>
+                            </div>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Page Title</th>
+                                    <th>Monthly Views</th>
+                                    <th>Days Old</th>
+                                    <th>CSAT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${area.pages.slice(0, 10).map((page, idx) => `
+                                    <tr>
+                                        <td><span class="rank-badge">${idx + 1}</span></td>
+                                        <td><strong><a href="${page.url}" target="_blank" style="color: #667eea; text-decoration: none;">${page.title}</a></strong></td>
+                                        <td>${formatNumber(page.impressions)}</td>
+                                        <td><span class="badge ${getAgeBadgeClass(page.age)}">${page.age || 'N/A'} days</span></td>
+                                        <td><span class="badge ${getCSATBadgeClass(page.csat)}">${page.csat || 'N/A'}</span></td>
+                                    </tr>
+                                `).join('')}
+                                ${area.pages.length > 10 ? `
+                                    <tr>
+                                        <td colspan="5" style="text-align: center; color: #999; font-style: italic;">
+                                            ... and ${area.pages.length - 10} more pages in this area
+                                        </td>
+                                    </tr>
+                                ` : ''}
+                            </tbody>
+                        </table>
+                    </div>
+                `).join('')}
             `;
         }
 
@@ -895,6 +991,7 @@
 
             const viewFunctions = {
                 'overview': renderOverview,
+                'ownership': renderOwnership,
                 'traffic': renderTraffic,
                 'freshness': renderFreshness,
                 'csat': renderCSAT,
