@@ -351,60 +351,12 @@
         </datalist>
     </div>
 
+    <!-- Load all pages data from external file -->
+    <script src="all_pages_data.js"></script>
+
     <script>
-        // Sample data - Top 50 pages by traffic with real URLs
-        const trafficData = [
-            { rank: 1, title: 'Sign in to SharePoint', url: 'https://support.microsoft.com/en-us/topic/324a89ec-e77b-4475-b64a-13a0c14c45ec', impressions: 12976493, age: 288, csat: 43, product: 'SharePoint', theme: 'Sign in' },
-            { rank: 2, title: 'Sharing files, folders, and list items', url: 'https://support.microsoft.com/en-us/topic/74cab0bf-39c6-4112-a63f-88ee121722d0', impressions: 4131558, age: 461, csat: 51, product: 'SharePoint', theme: 'Collaborate and share' },
-            { rank: 3, title: 'Create and use modern pages on a SharePoint site', url: 'https://support.microsoft.com/en-us/topic/b3d46deb-27a6-4b1e-87b8-df851e503dec', impressions: 2579931, age: 468, csat: 52, product: 'SharePoint', theme: 'SharePoint pages' },
-            { rank: 4, title: 'Troubleshooting issues in SharePoint', url: 'https://support.microsoft.com/en-us/topic/dc656f67-fec3-4948-9ec2-5e1b51886964', impressions: 1967376, age: 260, csat: 42, product: 'SharePoint', theme: 'Troubleshooting' },
-            { rank: 5, title: 'What is a SharePoint team site?', url: 'https://support.microsoft.com/en-us/topic/75545757-36c3-46a7-beed-0aaa74f0401e', impressions: 1893428, age: 275, csat: 59, product: 'SharePoint', theme: 'Templates' },
-            { rank: 6, title: 'List and library column types and options', url: 'https://support.microsoft.com/en-us/topic/0d8ddb7b-7dc7-414d-a283-ee9dca891df7', impressions: 1165835, age: 504, csat: 42, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
-            { rank: 7, title: 'View, edit, and add page details', url: 'https://support.microsoft.com/en-us/topic/778018d3-8269-4fd2-a55d-8c0e5b72b938', impressions: 1163387, age: 391, csat: 44, product: 'SharePoint', theme: 'SharePoint pages' },
-            { rank: 8, title: 'Get started with SharePoint', url: 'https://support.microsoft.com/en-us/topic/909ec2f0-05c8-4e92-8ad3-3f8b0b6cf261', impressions: 1150784, age: 349, csat: 48, product: 'SharePoint', theme: 'Get started' },
-            { rank: 9, title: 'Create and share news on your SharePoint sites', url: 'https://support.microsoft.com/en-us/topic/495f8f1a-3bef-4045-b33a-55e5abe7aed7', impressions: 1097812, age: 439, csat: 58, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 10, title: 'SharePoint help', url: 'https://support.microsoft.com/en-us/topic/83c1c11b-3d7c-4852-b597-46309e0892b3', impressions: 847940, age: 414, csat: 46, product: 'SharePoint', theme: 'Help' },
-            { rank: 11, title: 'Use the Highlighted content web part', url: 'https://support.microsoft.com/en-us/topic/e34199b0-ff1a-47fb-8f4d-dbcaed329efd', impressions: 834545, age: 328, csat: 51, product: 'SharePoint', theme: 'SharePoint web parts' },
-            { rank: 12, title: 'Schedule send in Outlook', url: 'https://support.microsoft.com/en-us/topic/0b0c0c20-8fa1-44b9-b5bc-57f160046639', impressions: 808094, age: 420, csat: 63, product: 'Viva', theme: 'Viva' },
-            { rank: 13, title: 'Viva Glint frequently asked questions', url: 'https://support.microsoft.com/en-us/topic/e2db8792-d4a3-4e73-84e9-7161fb18fa7d', impressions: 720695, age: 321, csat: 78, product: 'Viva', theme: 'Viva Glint' },
-            { rank: 14, title: 'Examples of common formulas in lists', url: 'https://support.microsoft.com/en-us/topic/d81f5f21-2b4e-45ce-b170-bf7ebf6988b3', impressions: 694287, age: 516, csat: 46, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
-            { rank: 15, title: 'Restore deleted items from the site collection recycle bin', url: 'https://support.microsoft.com/en-us/topic/5fa924ee-16d7-487b-9a0a-021b9062d14b', impressions: 663308, age: 341, csat: 57, product: 'SharePoint', theme: 'File management' },
-            { rank: 16, title: 'Restore items in the recycle bin that were deleted from SharePoint or Teams', url: 'https://support.microsoft.com/en-us/topic/6df466b6-55f2-4898-8d6e-c0dff851a0be', impressions: 629773, age: 350, csat: 46, product: 'SharePoint', theme: 'File management' },
-            { rank: 17, title: 'View SharePoint files in File Explorer', url: 'https://support.microsoft.com/en-us/topic/66b574bb-08b4-46b6-a6a0-435fd98194cc', impressions: 626769, age: 383, csat: 38, product: 'SharePoint', theme: 'File management' },
-            { rank: 18, title: 'Share SharePoint files or folders', url: 'https://support.microsoft.com/en-us/topic/1fe37332-0f9a-4719-970e-d2578da4941c', impressions: 596196, age: 414, csat: 51, product: 'SharePoint', theme: 'Collaborate and share' },
-            { rank: 19, title: 'Discover content with the SharePoint start page', url: 'https://support.microsoft.com/en-us/topic/6b85097a-87e0-4611-a29a-dfd49b1a1220', impressions: 567214, age: 589, csat: 42, product: 'SharePoint', theme: 'SharePoint pages' },
-            { rank: 20, title: 'SharePoint mobile app sign in options', url: 'https://support.microsoft.com/en-us/topic/fc002093-6a1a-41bf-b9d1-7e217c1cc7b6', impressions: 562137, age: 365, csat: 57, product: 'SharePoint', theme: 'Sign in' },
-            { rank: 21, title: 'Viewing SharePoint start page with Microsoft Graph turned off', url: 'https://support.microsoft.com/en-us/topic/3eb40fe7-6be9-4dca-a9f2-ad3e39bf28b0', impressions: 552386, age: 396, csat: 64, product: 'SharePoint', theme: 'SharePoint pages' },
-            { rank: 22, title: 'Change the look of your SharePoint site', url: 'https://support.microsoft.com/en-us/topic/06bbadc3-6b04-4a60-9d14-894f6a170818', impressions: 531873, age: 266, csat: 55, product: 'SharePoint', theme: 'Customization' },
-            { rank: 23, title: 'Use the SharePoint Standard communication, Showcase, and Blank communication site templates', url: 'https://support.microsoft.com/en-us/topic/94a33429-e580-45c3-a090-5512a8070732', impressions: 518596, age: 275, csat: 57, product: 'SharePoint', theme: 'Templates' },
-            { rank: 24, title: 'Change your personal language and region settings', url: 'https://support.microsoft.com/en-us/topic/caa1fccc-bcdb-42f3-9e5b-45957647ffd7', impressions: 504175, age: 254, csat: 44, product: 'SharePoint', theme: 'Language and translation' },
-            { rank: 25, title: 'Customize permissions for a SharePoint list or library', url: 'https://support.microsoft.com/en-us/topic/02d770f3-59eb-4910-a608-5f84cc297782', impressions: 502812, age: 352, csat: 37, product: 'SharePoint', theme: 'Customization' },
-            { rank: 26, title: 'SharePoint Alerts retirement', url: 'https://support.microsoft.com/en-us/topic/813a90c7-3ff1-47a9-8a2f-152f48b2486f', impressions: 501577, age: 255, csat: 54, product: 'SharePoint', theme: 'Alerts' },
-            { rank: 27, title: 'Sign in to Viva Engage', url: 'https://support.microsoft.com/en-us/topic/d863154a-4223-4ea2-8855-ccc971321b8e', impressions: 471357, age: 69, csat: 50, product: 'Viva', theme: 'Sign in' },
-            { rank: 28, title: 'SharePoint help & learning', url: 'https://support.microsoft.com/en-us/sharepoint', impressions: 431264, age: 426, csat: null, product: 'SharePoint', theme: 'Help' },
-            { rank: 29, title: 'Not getting the search results you\'re looking for in SharePoint?', url: 'https://support.microsoft.com/en-us/topic/d80687f7-1010-4e6d-add9-584b423289d9', impressions: 411364, age: 642, csat: 45, product: 'SharePoint', theme: 'Search' },
-            { rank: 30, title: 'Apply and customize SharePoint site templates', url: 'https://support.microsoft.com/en-us/topic/39382463-0e45-4d1b-be27-0e96aeec8398', impressions: 399614, age: 617, csat: 60, product: 'SharePoint', theme: 'Customization' },
-            { rank: 31, title: 'Sync SharePoint and Teams files with your computer', url: 'https://support.microsoft.com/en-us/topic/6de9ede8-5b6e-4503-80b2-6190f3354a88', impressions: 394529, age: 349, csat: 43, product: 'SharePoint', theme: 'File management' },
-            { rank: 32, title: 'Customize the navigation on your SharePoint site', url: 'https://support.microsoft.com/en-us/topic/3cd61ae7-a9ed-4e1e-bf6d-4655f0bf25ca', impressions: 391213, age: 314, csat: 41, product: 'SharePoint', theme: 'Customization' },
-            { rank: 33, title: 'Create a list', url: 'https://support.microsoft.com/en-us/topic/0d397414-d95f-41eb-addd-5e6eff41b083', impressions: 389956, age: 408, csat: 54, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
-            { rank: 34, title: 'Manage sites in the SharePoint admin center', url: 'https://learn.microsoft.com/en-us/sharepoint/manage-sites-in-new-admin-center', impressions: 388134, age: 279, csat: 64, product: 'SharePoint', theme: 'Administration' },
-            { rank: 35, title: 'Create a rule to automate a list or library', url: 'https://support.microsoft.com/en-us/topic/151ea008-7fa6-409b-b0bd-b04a3b3cacd5', impressions: 374178, age: 516, csat: 56, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
-            { rank: 36, title: 'Sharing and permissions', url: 'https://support.microsoft.com/en-us/topic/ac85fbf1-2431-49bf-8690-f1a2b98af65f', impressions: 367297, age: 496, csat: 44, product: 'SharePoint', theme: 'Collaborate and share' },
-            { rank: 37, title: 'What is SharePoint?', url: 'https://support.microsoft.com/en-us/topic/97b915e6-651b-43b2-827d-fb25777f446f', impressions: 365477, age: 349, csat: 59, product: 'SharePoint', theme: 'Get started' },
-            { rank: 38, title: 'Change SharePoint online language settings', url: 'https://support.microsoft.com/en-us/topic/0f6a477a-dcab-4462-9d0c-e3b53d138183', impressions: 364657, age: 252, csat: 54, product: 'SharePoint', theme: 'Account management' },
-            { rank: 39, title: 'Create a site in SharePoint', url: 'https://support.microsoft.com/en-us/topic/4d1e11bf-8ddc-499d-b889-2b48d10b1ce8', impressions: 357416, age: 617, csat: 50, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 40, title: 'Introduction to SharePoint and OneDrive in Microsoft 365 for administrators', url: 'https://learn.microsoft.com/en-us/sharepoint/introduction', impressions: 334315, age: 279, csat: 68, product: 'SharePoint', theme: 'Administration' },
-            { rank: 41, title: 'Create a team site in SharePoint', url: 'https://support.microsoft.com/en-us/topic/ef10c1e7-15f3-42a3-98aa-b5972711777d', impressions: 323858, age: 601, csat: 69, product: 'SharePoint', theme: 'SharePoint sites' },
-            { rank: 42, title: 'External or guest sharing in OneDrive, SharePoint, and Lists', url: 'https://support.microsoft.com/en-us/topic/7aa070b8-d094-4921-9dd9-86392f2a79e7', impressions: 323826, age: null, csat: 41, product: 'SharePoint', theme: 'Collaborate and share' },
-            { rank: 43, title: 'Manage sharing settings for SharePoint and OneDrive in Microsoft 365', url: 'https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off', impressions: 319471, age: 34, csat: 43, product: 'SharePoint', theme: 'Administration' },
-            { rank: 44, title: 'Sync SharePoint files and folders', url: 'https://support.microsoft.com/en-us/topic/87a96948-4dd7-43e4-aca1-53f3e18bea9b', impressions: 312084, age: 390, csat: 40, product: 'SharePoint', theme: 'File management' },
-            { rank: 45, title: 'Section Design Ideas', url: 'https://support.microsoft.com/en-us/topic/1da23de6-3033-4719-98ac-9394a504cc77', impressions: 309883, age: null, csat: 61, product: 'SharePoint', theme: 'SharePoint pages' },
-            { rank: 46, title: 'SharePoint video training', url: 'https://support.microsoft.com/en-us/topic/cb8ef501-84db-4427-ac77-ec2009fb8e23', impressions: 304680, age: 20, csat: 67, product: 'SharePoint', theme: 'Get started' },
-            { rank: 47, title: 'View the version history of an item or file in a list or library', url: 'https://support.microsoft.com/en-us/topic/53262060-5092-424d-a50b-c798b0ec32b1', impressions: 298978, age: 610, csat: 26, product: 'SharePoint', theme: 'SharePoint lists and libraries' },
-            { rank: 48, title: 'Using web parts on SharePoint pages', url: 'https://support.microsoft.com/en-us/topic/336e8e92-3e2d-4298-ae01-d404bbe751e0', impressions: 296374, age: 160, csat: 55, product: 'SharePoint', theme: 'SharePoint pages' },
-            { rank: 49, title: 'Manage your Viva Engage notifications', url: 'https://support.microsoft.com/en-us/topic/93e530e0-189f-4768-8f28-7683d48cc996', impressions: 289492, age: 44, csat: 39, product: 'Viva', theme: 'Viva Engage' },
-            { rank: 50, title: 'Sharing files, folders, and list items', url: 'https://support.microsoft.com/en-us/topic/e923c4f0-89f5-4cf0-8948-391e31fc0b30', impressions: 276261, age: 39, csat: 52, product: 'SharePoint', theme: 'Collaborate and share' }
-        ];
+        // Use top 50 from all pages data for backwards compatibility with existing views
+        const trafficData = allPagesData.slice(0, 50);
 
         // Overview data
         const themeData = [
@@ -588,7 +540,7 @@
             const phases = [
                 {
                     title: '🚀 Phase 1: Critical Launch Blockers',
-                    pages: trafficData.slice(0, 6),
+                    pages: allPagesData.slice(0, 6),
                     coverage: '26',
                     color: '#7cb342',
                     description: 'Top 6 pages - absolute highest priority. Update BEFORE launch to reach 1 in 4 users.',
@@ -597,7 +549,7 @@
                 },
                 {
                     title: '⚡ Phase 2: High-Impact Quick Wins',
-                    pages: trafficData.slice(6, 25),
+                    pages: allPagesData.slice(6, 25),
                     coverage: '40',
                     color: '#fb8c00',
                     description: 'Pages 7-25 - add significant reach. Complete within 2-3 weeks post-launch.',
@@ -606,7 +558,7 @@
                 },
                 {
                     title: '📦 Phase 3: Top 50 Completion',
-                    pages: trafficData.slice(25, 50),
+                    pages: allPagesData.slice(25, 50),
                     coverage: '50',
                     color: '#e91e63',
                     description: 'Pages 26-50 - complete the top 50 to reach half of all users.',
@@ -615,113 +567,27 @@
                 },
                 {
                     title: '🎯 Phase 4: Path to 80% Coverage',
-                    pages: [],
+                    pages: allPagesData.slice(50, 500),
                     coverage: '80',
                     color: '#9c27b0',
                     description: 'Pages 51-500 - Expand to top 500 pages to reach 80% coverage. This is the recommended goal for optimal ROI.',
                     timeline: 'Q1-Q4 Post-launch',
-                    pageRange: '51-500',
-                    placeholder: true,
-                    placeholderCount: 450
+                    pageRange: '51-500'
                 },
                 {
                     title: '⚠️ Phase 5: Complete Coverage (100%)',
-                    pages: [],
+                    pages: allPagesData.slice(500),
                     coverage: '100',
                     color: '#607d8b',
-                    description: 'All 8,865 pages for 100% coverage. NOT RECOMMENDED - requires 2-3 years with diminishing returns. Better to focus on 80% and maintain.',
+                    description: 'All remaining pages for 100% coverage. NOT RECOMMENDED - requires 2-3 years with diminishing returns. Better to focus on 80% and maintain.',
                     timeline: '2-3 years',
-                    pageRange: '501-8,865',
-                    placeholder: true,
-                    placeholderCount: 8365,
+                    pageRange: '501-' + allPagesData.length,
                     notRecommended: true
                 }
             ];
 
             const renderPhaseSection = (phase, index) => {
-                if (phase.placeholder) {
-                    // Placeholder phases - show structure with empty rows for future planning
-                    return `
-                        <div class="chart-container" style="border-left: 6px solid ${phase.color}; ${phase.notRecommended ? 'opacity: 0.85;' : ''}">
-                            <h3 style="color: ${phase.color};">${phase.title}</h3>
-                            <p style="font-size: 1.1em; margin-bottom: 20px;">${phase.description}</p>
-
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-bottom: 25px;">
-                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
-                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Page Range</div>
-                                    <div style="font-size: 1.8em; font-weight: bold; color: ${phase.color};">${phase.pageRange}</div>
-                                </div>
-                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
-                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Total Pages</div>
-                                    <div style="font-size: 1.8em; font-weight: bold; color: ${phase.color};">${phase.placeholderCount}</div>
-                                </div>
-                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
-                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Coverage</div>
-                                    <div style="font-size: 1.8em; font-weight: bold; color: ${phase.color};">${phase.coverage}%</div>
-                                </div>
-                                <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
-                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Timeline</div>
-                                    <div style="font-size: 1.3em; font-weight: bold; color: ${phase.color};">${phase.timeline}</div>
-                                </div>
-                                ${phase.notRecommended ? `
-                                    <div style="background: #ffebee; padding: 15px; border-radius: 8px; border: 2px solid #e74c3c;">
-                                        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Status</div>
-                                        <div style="font-size: 1.3em; font-weight: bold; color: #e74c3c;">❌ Not Viable</div>
-                                    </div>
-                                ` : `
-                                    <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; border: 2px solid #27ae60;">
-                                        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Status</div>
-                                        <div style="font-size: 1.3em; font-weight: bold; color: #27ae60;">✅ Recommended</div>
-                                    </div>
-                                `}
-                            </div>
-
-                            <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid ${phase.color};">
-                                <strong>📝 Planning Notes:</strong>
-                                <ul style="margin: 10px 0 0 20px; padding: 0;">
-                                    ${phase.notRecommended ? `
-                                        <li>This phase covers the remaining ${phase.placeholderCount.toLocaleString()} pages</li>
-                                        <li>Many pages receive <100 views/month (very low traffic)</li>
-                                        <li>Estimated effort: 2-3 years with 10+ writers</li>
-                                        <li><strong>Recommendation:</strong> Focus on Phase 4 (80%) instead</li>
-                                        <li>Better to update these pages reactively when product changes require it</li>
-                                    ` : `
-                                        <li>This phase covers pages ${phase.pageRange} (${phase.placeholderCount} pages)</li>
-                                        <li>Achieves ${phase.coverage}% traffic coverage - optimal ROI</li>
-                                        <li>Estimated effort: 6-12 months with 5-8 writers</li>
-                                        <li><strong>This is the recommended stopping point</strong></li>
-                                        <li>After completion, shift to quarterly maintenance mode</li>
-                                    `}
-                                </ul>
-                            </div>
-
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Page Title</th>
-                                        <th>Monthly Views</th>
-                                        <th>Days Old</th>
-                                        <th>CSAT</th>
-                                        <th>Owner</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="7" style="text-align: center; padding: 40px 20px; color: #666; font-style: italic; background: #f8f9fa;">
-                                            <div style="font-size: 1.2em; margin-bottom: 10px;">📊 Future Phase Planning Area</div>
-                                            <div>Page details will be added here as you expand beyond the top 50 pages.</div>
-                                            <div style="margin-top: 10px; color: #999;">To populate this phase, you'll need to import additional page data from your analytics system.</div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    `;
-                }
-
-                // Active phases with detailed pages
+                // All phases now have detailed pages
                 const phasePages = phase.pages;
                 const traffic = phasePages.reduce((sum, p) => sum + p.impressions, 0);
                 const phaseCompleted = phasePages.filter(p => statuses[p.rank] === 'Completed').length;
