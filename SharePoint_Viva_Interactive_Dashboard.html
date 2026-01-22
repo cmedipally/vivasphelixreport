@@ -346,6 +346,10 @@
         <div class="content-section" id="content">
             <!-- Content will be dynamically loaded here -->
         </div>
+
+        <!-- Datalist for owner name suggestions -->
+        <datalist id="ownerSuggestions">
+        </datalist>
     </div>
 
     <script>
@@ -443,6 +447,32 @@
             if (csat < 50) return 'badge-high';
             if (csat < 60) return 'badge-medium';
             return 'badge-low';
+        }
+
+        // Owner assignment functions
+        function getPageOwners() {
+            const stored = localStorage.getItem('pageOwners');
+            return stored ? JSON.parse(stored) : {};
+        }
+
+        function setPageOwner(rank, owner) {
+            const owners = getPageOwners();
+            owners[rank] = owner.trim();
+            localStorage.setItem('pageOwners', JSON.stringify(owners));
+        }
+
+        function getAllOwnerNames() {
+            const owners = getPageOwners();
+            const uniqueNames = [...new Set(Object.values(owners).filter(name => name.length > 0))];
+            return uniqueNames.sort();
+        }
+
+        function updateOwnerSuggestions() {
+            const datalist = document.getElementById('ownerSuggestions');
+            if (datalist) {
+                const names = getAllOwnerNames();
+                datalist.innerHTML = names.map(name => `<option value="${name}">`).join('');
+            }
         }
 
         // View rendering functions
@@ -552,18 +582,32 @@
                                 <th>Monthly Views</th>
                                 <th>Days Old</th>
                                 <th>CSAT</th>
+                                <th>Owner</th>
                             </tr>
                         </thead>
                         <tbody>
-                            ${pages.map(page => `
+                            ${pages.map(page => {
+                                const owners = getPageOwners();
+                                const currentOwner = owners[page.rank] || '';
+                                return `
                                 <tr>
                                     <td><span class="rank-badge">${page.rank}</span></td>
                                     <td><strong><a href="${page.url}" target="_blank" style="color: #667eea; text-decoration: none;">${page.title}</a></strong></td>
                                     <td>${formatNumber(page.impressions)}</td>
                                     <td><span class="badge ${getAgeBadgeClass(page.age)}">${page.age || 'N/A'} days</span></td>
                                     <td><span class="badge ${getCSATBadgeClass(page.csat)}">${page.csat || 'N/A'}</span></td>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            value="${currentOwner}"
+                                            placeholder="Assign owner..."
+                                            style="width: 150px; padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9em;"
+                                            onchange="setPageOwner(${page.rank}, this.value)"
+                                            list="ownerSuggestions"
+                                        />
+                                    </td>
                                 </tr>
-                            `).join('')}
+                            `}).join('')}
                         </tbody>
                     </table>
                 </div>
@@ -1331,6 +1375,12 @@
                 console.log('Generated HTML length:', html.length);
                 content.innerHTML = html;
                 console.log('Content updated');
+
+                // Update owner suggestions for phased and roadmap views
+                if (view === 'phased' || view === 'roadmap') {
+                    updateOwnerSuggestions();
+                }
+
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 console.error('View function not found for:', view);
