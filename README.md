@@ -9,54 +9,44 @@ Interactive dashboard and analysis tools for preparing SharePoint and Viva docum
 
 ## 📊 Executive Summary
 
-### Dataset Scope (Filtered)
-- **174 priority documentation assets** (filtered from 8,865 total)
-- **Focus areas:** Viva Connections + SharePoint Home, Homesite, News, and Start
-- **Viva:** 34 Viva Connections pages
-- **SharePoint:** 140 pages (Home/Homesite/News/Start)
-- **Top 50 pages cover 97% of traffic** for these areas
+### Dataset Scope
+- **174 priority documentation assets** across 3 main categories
+- **Focus areas:** Viva Connections • SharePoint News • SharePoint Start
 
-### The Solution
-Update **top 50 high-impact pages** to reach **97% of users** in these priority areas
+### Category Breakdown
+- **Viva Connections:** 34 pages • 0.4M views (10% of traffic)
+- **SharePoint News:** 49 pages • 1.9M views (52% of traffic)
+- **SharePoint Start:** 71 pages • 1.2M views (33% of traffic)
 
-## 🎯 Priority Framework (Filtered Dataset)
+### The Approach
+Segment pages by category, prioritize within each category based on traffic, and track progress separately for each area
 
-### Phase 1: Critical Launch Blockers (6 pages)
-- **Traffic Impact:** 70% of filtered dataset
-- **Focus:** Top 6 highest-traffic pages
-- **Timeline:** Pre-launch
+## 🎯 Category-Based Framework
 
-### Phase 2: High-Impact Quick Wins (19 pages)
-- **Traffic Impact:** 89% cumulative coverage
-- **Focus:** Pages 7-25
-- **Timeline:** Weeks 1-3
+### Viva Connections (34 pages)
+- **Traffic:** 367K monthly views
+- **Top Priority:** "Overview: Viva Connections" (71K views)
+- **Owner Assignment:** Track and assign by Viva team
 
-### Phase 3: Top 50 Completion (25 pages)
-- **Traffic Impact:** 97% cumulative coverage
-- **Focus:** Pages 26-50 - Recommended target
-- **Timeline:** Weeks 4-6
+### SharePoint News (49 pages)
+- **Traffic:** 1.9M monthly views (highest volume)
+- **Top Priority:** "Create and share news" (1.1M views)
+- **Owner Assignment:** Track and assign by News team
 
-### Phase 4: Extended Coverage (89 pages)
-- **Traffic Impact:** 99.9% cumulative coverage
-- **Focus:** Pages 51-139
-- **Timeline:** Q2-Q4
-
-### Phase 5: Complete Coverage (35 pages)
-- **Traffic Impact:** 100% (minimal additional <0.1%)
-- **Focus:** Pages 140-174
-- **Timeline:** Ongoing/maintenance
+### SharePoint Start (71 pages)
+- **Traffic:** 1.2M monthly views
+- **Top Priority:** "Discover content with SharePoint start page" (567K views)
+- **Owner Assignment:** Track and assign by Start page team
 
 ## 📈 Key Metrics
 
-| Metric | Value | Impact |
-|--------|-------|--------|
-| Total Assets | 174 | Filtered priority pages |
-| SharePoint | 140 (80.5%) | Home/News/Start |
-| Viva | 34 (19.5%) | Viva Connections |
-| Total Traffic | 3.69M views | Combined impressions |
-| Top Page Traffic | 1.1M views | Create and share news |
-| Top 6 Pages | 70% coverage | Critical focus |
-| Top 50 Pages | 97% coverage | Recommended target |
+| Category | Pages | Traffic | Top Page |
+|----------|-------|---------|----------|
+| SharePoint News | 49 (28%) | 1.9M views (52%) | Create and share news (1.1M) |
+| SharePoint Start | 71 (41%) | 1.2M views (33%) | Discover SharePoint start page (567K) |
+| Viva Connections | 34 (20%) | 367K views (10%) | Overview: Viva Connections (71K) |
+| SharePoint Home | 20 (11%) | 161K views (4%) | Use different home page (57K) |
+| **Total** | **174** | **3.69M views** | - |
 
 ## 🗂️ What's Included
 
