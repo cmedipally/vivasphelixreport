@@ -323,8 +323,7 @@
 
         <div class="controls">
             <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 0;">
-                <button onclick="changeView('overview')" id="tab-overview" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-bottom: 3px solid #667eea; cursor: pointer; font-weight: 600; transition: all 0.3s;">📊 Overview</button>
-                <button onclick="changeView('execution')" id="tab-execution" style="padding: 12px 24px; background: white; color: #667eea; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-weight: 600; transition: all 0.3s;">🎯 Execution Plan</button>
+                <button onclick="changeView('execution')" id="tab-execution" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-bottom: 3px solid #667eea; cursor: pointer; font-weight: 600; transition: all 0.3s;">🎯 Execution Plan</button>
             </div>
             <div class="control-group" id="viewSelectorGroup" style="display: none;">
                 <label>🔍 Select View</label>
@@ -1710,7 +1709,7 @@
             console.log('Selected view:', view);
 
             // Update tab styling
-            const tabs = ['overview', 'execution'];
+            const tabs = ['execution'];
             tabs.forEach(tab => {
                 const tabBtn = document.getElementById('tab-' + tab);
                 if (tabBtn) {
@@ -1760,14 +1759,14 @@
             }
         }
 
-        // Initialize with overview
+        // Initialize with execution plan
         window.onload = function() {
             console.log('Window loaded!');
             try {
                 const content = document.getElementById('content');
                 console.log('Content element:', content);
                 console.log('Calling changeView()...');
-                changeView('overview');
+                changeView('execution');
                 console.log('Dashboard loaded successfully!');
             } catch (error) {
                 console.error('Error loading dashboard:', error);
