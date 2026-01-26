@@ -1,4 +1,4 @@
-// Generated from VSPSites.csv - 2026-01-22 14:24:01
+// Generated from VSPSites.csv - 2026-01-26 15:27:41
 // Total pages: 174
 
 const allPagesData = [
@@ -10,7 +10,8 @@ const allPagesData = [
         "age": 439,
         "csat": 58,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint News"
     },
     {
         "rank": 2,
@@ -20,7 +21,8 @@ const allPagesData = [
         "age": 589,
         "csat": 42,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint Start"
     },
     {
         "rank": 3,
@@ -30,7 +32,8 @@ const allPagesData = [
         "age": 396,
         "csat": 64,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint Start"
     },
     {
         "rank": 4,
@@ -40,7 +43,8 @@ const allPagesData = [
         "age": 596,
         "csat": 54,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 5,
@@ -50,7 +54,8 @@ const allPagesData = [
         "age": null,
         "csat": 61,
         "product": "SharePoint",
-        "theme": "Discovery"
+        "theme": "Discovery",
+        "category": "SharePoint News"
     },
     {
         "rank": 6,
@@ -60,7 +65,8 @@ const allPagesData = [
         "age": 309,
         "csat": 54,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 7,
@@ -70,7 +76,8 @@ const allPagesData = [
         "age": 527,
         "csat": 50,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 8,
@@ -80,7 +87,8 @@ const allPagesData = [
         "age": 162,
         "csat": 54,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 9,
@@ -90,7 +98,8 @@ const allPagesData = [
         "age": 396,
         "csat": 50,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint Home"
     },
     {
         "rank": 10,
@@ -100,7 +109,8 @@ const allPagesData = [
         "age": 396,
         "csat": 48,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 11,
@@ -110,7 +120,8 @@ const allPagesData = [
         "age": 303,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "Get started"
+        "theme": "Get started",
+        "category": "SharePoint Start"
     },
     {
         "rank": 12,
@@ -120,7 +131,8 @@ const allPagesData = [
         "age": 364,
         "csat": 25,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 13,
@@ -130,7 +142,8 @@ const allPagesData = [
         "age": null,
         "csat": 57,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint Home"
     },
     {
         "rank": 14,
@@ -140,7 +153,8 @@ const allPagesData = [
         "age": 364,
         "csat": 56,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 15,
@@ -150,7 +164,8 @@ const allPagesData = [
         "age": 390,
         "csat": 49,
         "product": "SharePoint",
-        "theme": "Training"
+        "theme": "Training",
+        "category": "SharePoint News"
     },
     {
         "rank": 16,
@@ -160,7 +175,8 @@ const allPagesData = [
         "age": 389,
         "csat": 66,
         "product": "SharePoint",
-        "theme": "Training"
+        "theme": "Training",
+        "category": "SharePoint News"
     },
     {
         "rank": 17,
@@ -170,7 +186,8 @@ const allPagesData = [
         "age": 302,
         "csat": 62,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 18,
@@ -180,7 +197,8 @@ const allPagesData = [
         "age": 428,
         "csat": 60,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 19,
@@ -190,7 +208,8 @@ const allPagesData = [
         "age": null,
         "csat": 45,
         "product": "SharePoint",
-        "theme": "Training"
+        "theme": "Training",
+        "category": "SharePoint Home"
     },
     {
         "rank": 20,
@@ -200,7 +219,8 @@ const allPagesData = [
         "age": null,
         "csat": 57,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 21,
@@ -210,7 +230,8 @@ const allPagesData = [
         "age": 329,
         "csat": 83,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 22,
@@ -220,7 +241,8 @@ const allPagesData = [
         "age": 516,
         "csat": 30,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 23,
@@ -230,7 +252,8 @@ const allPagesData = [
         "age": 441,
         "csat": 49,
         "product": "SharePoint",
-        "theme": "File management"
+        "theme": "File management",
+        "category": "SharePoint News"
     },
     {
         "rank": 24,
@@ -240,7 +263,8 @@ const allPagesData = [
         "age": 146,
         "csat": 63,
         "product": "Viva",
-        "theme": "Training"
+        "theme": "Training",
+        "category": "Viva Connections"
     },
     {
         "rank": 25,
@@ -250,7 +274,8 @@ const allPagesData = [
         "age": 439,
         "csat": 0,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 26,
@@ -260,7 +285,8 @@ const allPagesData = [
         "age": null,
         "csat": 64,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint News"
     },
     {
         "rank": 27,
@@ -270,7 +296,8 @@ const allPagesData = [
         "age": 7,
         "csat": 53,
         "product": "SharePoint",
-        "theme": "SharePoint in Microsoft 365"
+        "theme": "SharePoint in Microsoft 365",
+        "category": "SharePoint News"
     },
     {
         "rank": 28,
@@ -280,7 +307,8 @@ const allPagesData = [
         "age": 356,
         "csat": 68,
         "product": "Viva",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "Viva Connections"
     },
     {
         "rank": 29,
@@ -290,7 +318,8 @@ const allPagesData = [
         "age": 442,
         "csat": 67,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 30,
@@ -300,7 +329,8 @@ const allPagesData = [
         "age": null,
         "csat": 43,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint News"
     },
     {
         "rank": 31,
@@ -310,7 +340,8 @@ const allPagesData = [
         "age": 280,
         "csat": 0,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 32,
@@ -320,7 +351,8 @@ const allPagesData = [
         "age": null,
         "csat": 38,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint News"
     },
     {
         "rank": 33,
@@ -330,7 +362,8 @@ const allPagesData = [
         "age": 623,
         "csat": 50,
         "product": "SharePoint",
-        "theme": "stream"
+        "theme": "stream",
+        "category": "SharePoint Start"
     },
     {
         "rank": 34,
@@ -340,7 +373,8 @@ const allPagesData = [
         "age": 574,
         "csat": 51,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 35,
@@ -350,7 +384,8 @@ const allPagesData = [
         "age": 839,
         "csat": 46,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 36,
@@ -360,7 +395,8 @@ const allPagesData = [
         "age": null,
         "csat": 66,
         "product": "SharePoint",
-        "theme": "Templates"
+        "theme": "Templates",
+        "category": "SharePoint Home"
     },
     {
         "rank": 37,
@@ -370,7 +406,8 @@ const allPagesData = [
         "age": 2751,
         "csat": 22,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 38,
@@ -380,7 +417,8 @@ const allPagesData = [
         "age": 442,
         "csat": 100,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 39,
@@ -390,7 +428,8 @@ const allPagesData = [
         "age": null,
         "csat": 61,
         "product": "SharePoint",
-        "theme": "Templates"
+        "theme": "Templates",
+        "category": "SharePoint Home"
     },
     {
         "rank": 40,
@@ -400,7 +439,8 @@ const allPagesData = [
         "age": null,
         "csat": 50,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 41,
@@ -410,7 +450,8 @@ const allPagesData = [
         "age": 441,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 42,
@@ -420,7 +461,8 @@ const allPagesData = [
         "age": null,
         "csat": 54,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 43,
@@ -430,7 +472,8 @@ const allPagesData = [
         "age": null,
         "csat": 70,
         "product": "SharePoint",
-        "theme": "Templates"
+        "theme": "Templates",
+        "category": "SharePoint Home"
     },
     {
         "rank": 44,
@@ -440,7 +483,8 @@ const allPagesData = [
         "age": null,
         "csat": 31,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 45,
@@ -450,7 +494,8 @@ const allPagesData = [
         "age": 441,
         "csat": 50,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 46,
@@ -460,7 +505,8 @@ const allPagesData = [
         "age": 2436,
         "csat": 100,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint News"
     },
     {
         "rank": 47,
@@ -470,7 +516,8 @@ const allPagesData = [
         "age": null,
         "csat": 56,
         "product": "SharePoint",
-        "theme": "Navigation"
+        "theme": "Navigation",
+        "category": "SharePoint News"
     },
     {
         "rank": 48,
@@ -480,7 +527,8 @@ const allPagesData = [
         "age": null,
         "csat": 16,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 49,
@@ -490,7 +538,8 @@ const allPagesData = [
         "age": 341,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 50,
@@ -500,7 +549,8 @@ const allPagesData = [
         "age": null,
         "csat": 50,
         "product": "SharePoint",
-        "theme": "SharePoint in Microsoft 365"
+        "theme": "SharePoint in Microsoft 365",
+        "category": "SharePoint News"
     },
     {
         "rank": 51,
@@ -510,7 +560,8 @@ const allPagesData = [
         "age": 483,
         "csat": 0,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 52,
@@ -520,7 +571,8 @@ const allPagesData = [
         "age": 358,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 53,
@@ -530,7 +582,8 @@ const allPagesData = [
         "age": 510,
         "csat": 100,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 54,
@@ -540,7 +593,8 @@ const allPagesData = [
         "age": 356,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 55,
@@ -550,7 +604,8 @@ const allPagesData = [
         "age": 1979,
         "csat": 67,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint News"
     },
     {
         "rank": 56,
@@ -560,7 +615,8 @@ const allPagesData = [
         "age": null,
         "csat": 100,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 57,
@@ -570,7 +626,8 @@ const allPagesData = [
         "age": null,
         "csat": 43,
         "product": "SharePoint",
-        "theme": "Updates"
+        "theme": "Updates",
+        "category": "SharePoint Start"
     },
     {
         "rank": 58,
@@ -580,7 +637,8 @@ const allPagesData = [
         "age": null,
         "csat": 33,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint News"
     },
     {
         "rank": 59,
@@ -590,7 +648,8 @@ const allPagesData = [
         "age": null,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "Troubleshooting"
+        "theme": "Troubleshooting",
+        "category": "SharePoint Start"
     },
     {
         "rank": 60,
@@ -600,7 +659,8 @@ const allPagesData = [
         "age": 2871,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 61,
@@ -610,7 +670,8 @@ const allPagesData = [
         "age": 2197,
         "csat": 100,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Home"
     },
     {
         "rank": 62,
@@ -620,7 +681,8 @@ const allPagesData = [
         "age": null,
         "csat": 25,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 63,
@@ -630,7 +692,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 64,
@@ -640,7 +703,8 @@ const allPagesData = [
         "age": 356,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 65,
@@ -650,7 +714,8 @@ const allPagesData = [
         "age": 588,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 66,
@@ -660,7 +725,8 @@ const allPagesData = [
         "age": 282,
         "csat": 0,
         "product": "Viva",
-        "theme": "AI and Copilot"
+        "theme": "AI and Copilot",
+        "category": "Viva Connections"
     },
     {
         "rank": 67,
@@ -670,7 +736,8 @@ const allPagesData = [
         "age": 1629,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint News"
     },
     {
         "rank": 68,
@@ -680,7 +747,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 69,
@@ -690,7 +758,8 @@ const allPagesData = [
         "age": null,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 70,
@@ -700,7 +769,8 @@ const allPagesData = [
         "age": 280,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 71,
@@ -710,7 +780,8 @@ const allPagesData = [
         "age": 363,
         "csat": 50,
         "product": "Viva",
-        "theme": "Training"
+        "theme": "Training",
+        "category": "Viva Connections"
     },
     {
         "rank": 72,
@@ -720,7 +791,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Get started"
+        "theme": "Get started",
+        "category": "SharePoint News"
     },
     {
         "rank": 73,
@@ -730,7 +802,8 @@ const allPagesData = [
         "age": 3101,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 74,
@@ -740,7 +813,8 @@ const allPagesData = [
         "age": 530,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 75,
@@ -750,7 +824,8 @@ const allPagesData = [
         "age": null,
         "csat": 56,
         "product": "SharePoint",
-        "theme": "SharePoint lists and libraries"
+        "theme": "SharePoint lists and libraries",
+        "category": "SharePoint Start"
     },
     {
         "rank": 76,
@@ -760,7 +835,8 @@ const allPagesData = [
         "age": null,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "Troubleshooting"
+        "theme": "Troubleshooting",
+        "category": "SharePoint Start"
     },
     {
         "rank": 77,
@@ -770,7 +846,8 @@ const allPagesData = [
         "age": null,
         "csat": 100,
         "product": "SharePoint",
-        "theme": "Templates"
+        "theme": "Templates",
+        "category": "SharePoint Home"
     },
     {
         "rank": 78,
@@ -780,7 +857,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Home"
     },
     {
         "rank": 79,
@@ -790,7 +868,8 @@ const allPagesData = [
         "age": null,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 80,
@@ -800,7 +879,8 @@ const allPagesData = [
         "age": 282,
         "csat": 100,
         "product": "Viva",
-        "theme": "AI and Copilot"
+        "theme": "AI and Copilot",
+        "category": "Viva Connections"
     },
     {
         "rank": 81,
@@ -810,7 +890,8 @@ const allPagesData = [
         "age": 3095,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 82,
@@ -820,7 +901,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 83,
@@ -830,7 +912,8 @@ const allPagesData = [
         "age": 287,
         "csat": 100,
         "product": "SharePoint",
-        "theme": "Get started"
+        "theme": "Get started",
+        "category": "SharePoint News"
     },
     {
         "rank": 84,
@@ -840,7 +923,8 @@ const allPagesData = [
         "age": 1542,
         "csat": null,
         "product": "SharePoint",
-        "theme": "stream"
+        "theme": "stream",
+        "category": "SharePoint Home"
     },
     {
         "rank": 85,
@@ -850,7 +934,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint News"
     },
     {
         "rank": 86,
@@ -860,7 +945,8 @@ const allPagesData = [
         "age": 476,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 87,
@@ -870,7 +956,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Get started"
+        "theme": "Get started",
+        "category": "SharePoint News"
     },
     {
         "rank": 88,
@@ -880,7 +967,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 89,
@@ -890,7 +978,8 @@ const allPagesData = [
         "age": 2738,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Home"
     },
     {
         "rank": 90,
@@ -900,7 +989,8 @@ const allPagesData = [
         "age": 504,
         "csat": 0,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 91,
@@ -910,7 +1000,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 92,
@@ -920,7 +1011,8 @@ const allPagesData = [
         "age": 364,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 93,
@@ -930,7 +1022,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint Start"
     },
     {
         "rank": 94,
@@ -940,7 +1033,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Training"
+        "theme": "Training",
+        "category": "SharePoint News"
     },
     {
         "rank": 95,
@@ -950,7 +1044,8 @@ const allPagesData = [
         "age": 594,
         "csat": 100,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 96,
@@ -960,7 +1055,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Get started"
+        "theme": "Get started",
+        "category": "SharePoint News"
     },
     {
         "rank": 97,
@@ -970,7 +1066,8 @@ const allPagesData = [
         "age": 280,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 98,
@@ -980,7 +1077,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 99,
@@ -990,7 +1088,8 @@ const allPagesData = [
         "age": null,
         "csat": 100,
         "product": "SharePoint",
-        "theme": "Navigation"
+        "theme": "Navigation",
+        "category": "SharePoint News"
     },
     {
         "rank": 100,
@@ -1000,7 +1099,8 @@ const allPagesData = [
         "age": 280,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 101,
@@ -1010,7 +1110,8 @@ const allPagesData = [
         "age": 2648,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Home"
     },
     {
         "rank": 102,
@@ -1020,7 +1121,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 103,
@@ -1030,7 +1132,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "Viva",
-        "theme": "Settings"
+        "theme": "Settings",
+        "category": "Viva Connections"
     },
     {
         "rank": 104,
@@ -1040,7 +1143,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 105,
@@ -1050,7 +1154,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Troubleshooting"
+        "theme": "Troubleshooting",
+        "category": "SharePoint Start"
     },
     {
         "rank": 106,
@@ -1060,7 +1165,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint News"
     },
     {
         "rank": 107,
@@ -1070,7 +1176,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 108,
@@ -1080,7 +1187,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 109,
@@ -1090,7 +1198,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Home"
     },
     {
         "rank": 110,
@@ -1100,7 +1209,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 111,
@@ -1110,7 +1220,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint Start"
     },
     {
         "rank": 112,
@@ -1120,7 +1231,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Home"
     },
     {
         "rank": 113,
@@ -1130,7 +1242,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 114,
@@ -1140,7 +1253,8 @@ const allPagesData = [
         "age": 766,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint News"
     },
     {
         "rank": 115,
@@ -1150,7 +1264,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 116,
@@ -1160,7 +1275,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 117,
@@ -1170,7 +1286,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 118,
@@ -1180,7 +1297,8 @@ const allPagesData = [
         "age": null,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 119,
@@ -1190,7 +1308,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 120,
@@ -1200,7 +1319,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 121,
@@ -1210,7 +1330,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 122,
@@ -1220,7 +1341,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint Home"
     },
     {
         "rank": 123,
@@ -1230,7 +1352,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 124,
@@ -1240,7 +1363,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint Home"
     },
     {
         "rank": 125,
@@ -1250,7 +1374,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 126,
@@ -1260,7 +1385,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Home"
     },
     {
         "rank": 127,
@@ -1270,7 +1396,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 128,
@@ -1280,7 +1407,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint News"
     },
     {
         "rank": 129,
@@ -1290,7 +1418,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 130,
@@ -1300,7 +1429,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 131,
@@ -1310,7 +1440,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 132,
@@ -1320,7 +1451,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 133,
@@ -1330,7 +1462,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 134,
@@ -1340,7 +1473,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 135,
@@ -1350,7 +1484,8 @@ const allPagesData = [
         "age": 2876,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 136,
@@ -1360,7 +1495,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 137,
@@ -1370,7 +1506,8 @@ const allPagesData = [
         "age": null,
         "csat": 0,
         "product": "SharePoint",
-        "theme": "SharePoint in Microsoft 365"
+        "theme": "SharePoint in Microsoft 365",
+        "category": "SharePoint Home"
     },
     {
         "rank": 138,
@@ -1380,7 +1517,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 139,
@@ -1390,7 +1528,8 @@ const allPagesData = [
         "age": 327,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Quick Answer"
+        "theme": "Quick Answer",
+        "category": "SharePoint Home"
     },
     {
         "rank": 140,
@@ -1400,7 +1539,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 141,
@@ -1410,7 +1550,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint News"
     },
     {
         "rank": 142,
@@ -1420,7 +1561,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 143,
@@ -1430,7 +1572,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 144,
@@ -1440,7 +1583,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "SharePoint sites"
+        "theme": "SharePoint sites",
+        "category": "SharePoint News"
     },
     {
         "rank": 145,
@@ -1450,7 +1594,8 @@ const allPagesData = [
         "age": 3038,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 146,
@@ -1460,7 +1605,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 147,
@@ -1470,7 +1616,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 148,
@@ -1480,7 +1627,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 149,
@@ -1490,7 +1638,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "SharePoint lists and libraries"
+        "theme": "SharePoint lists and libraries",
+        "category": "SharePoint Start"
     },
     {
         "rank": 150,
@@ -1500,7 +1649,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 151,
@@ -1510,7 +1660,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 152,
@@ -1520,7 +1671,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 153,
@@ -1530,7 +1682,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 154,
@@ -1540,7 +1693,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 155,
@@ -1550,7 +1704,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Updates"
+        "theme": "Updates",
+        "category": "SharePoint Start"
     },
     {
         "rank": 156,
@@ -1560,7 +1715,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint Start"
     },
     {
         "rank": 157,
@@ -1570,7 +1726,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "SharePoint in Microsoft 365"
+        "theme": "SharePoint in Microsoft 365",
+        "category": "SharePoint Home"
     },
     {
         "rank": 158,
@@ -1580,7 +1737,8 @@ const allPagesData = [
         "age": 766,
         "csat": null,
         "product": "SharePoint",
-        "theme": "sharepoint"
+        "theme": "sharepoint",
+        "category": "SharePoint Start"
     },
     {
         "rank": 159,
@@ -1590,7 +1748,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 160,
@@ -1600,7 +1759,8 @@ const allPagesData = [
         "age": 275,
         "csat": null,
         "product": "SharePoint",
-        "theme": "Get started"
+        "theme": "Get started",
+        "category": "SharePoint News"
     },
     {
         "rank": 161,
@@ -1610,7 +1770,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 162,
@@ -1620,7 +1781,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 163,
@@ -1630,7 +1792,8 @@ const allPagesData = [
         "age": 1596,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 164,
@@ -1640,7 +1803,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 165,
@@ -1650,7 +1814,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "How To"
+        "theme": "How To",
+        "category": "SharePoint Start"
     },
     {
         "rank": 166,
@@ -1660,7 +1825,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 167,
@@ -1670,7 +1836,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 168,
@@ -1680,7 +1847,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 169,
@@ -1690,7 +1858,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 170,
@@ -1700,7 +1869,8 @@ const allPagesData = [
         "age": null,
         "csat": null,
         "product": "SharePoint",
-        "theme": "SharePoint pages"
+        "theme": "SharePoint pages",
+        "category": "SharePoint Start"
     },
     {
         "rank": 171,
@@ -1710,7 +1880,8 @@ const allPagesData = [
         "age": 1596,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 172,
@@ -1720,7 +1891,8 @@ const allPagesData = [
         "age": 891,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     },
     {
         "rank": 173,
@@ -1730,7 +1902,8 @@ const allPagesData = [
         "age": 1596,
         "csat": null,
         "product": "SharePoint",
-        "theme": "powershell"
+        "theme": "powershell",
+        "category": "SharePoint Start"
     },
     {
         "rank": 174,
@@ -1740,6 +1913,7 @@ const allPagesData = [
         "age": 548,
         "csat": null,
         "product": "Viva",
-        "theme": "viva"
+        "theme": "viva",
+        "category": "Viva Connections"
     }
 ];

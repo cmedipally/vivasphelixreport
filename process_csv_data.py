@@ -76,6 +76,27 @@ def should_include_page(row):
     # Exclude all other products
     return False
 
+def determine_category(row):
+    """
+    Categorize pages into 3 main segments:
+    - Viva Connections
+    - SharePoint Start
+    - SharePoint News
+    """
+    product = row.get('Product', '').strip()
+    title = row.get('TopicTitle', '').strip().lower()
+
+    if product == 'Viva':
+        return 'Viva Connections'
+    elif 'news' in title:
+        return 'SharePoint News'
+    elif 'start' in title and 'started' not in title:
+        return 'SharePoint Start'
+    elif 'home' in title or 'homesite' in title:
+        return 'SharePoint Home'
+    else:
+        return 'Other'
+
 # Read CSV file
 csv_file = r'C:\Users\cmedipally\OneDrive - Microsoft\Desktop\Documentation\VSPSites.csv'
 output_file = r'C:\Users\cmedipally\vivasphelixreport\all_pages_data.js'
@@ -115,7 +136,8 @@ with open(csv_file, 'r', encoding='utf-8-sig') as f:
                 'age': parse_days_since_review(row.get('DaysSinceReview', '')),
                 'csat': parse_csat(row.get('Content SAT', '')),
                 'product': row.get('Product', '').strip(),
-                'theme': determine_theme(row)
+                'theme': determine_theme(row),
+                'category': determine_category(row)
             }
 
             pages.append(page)

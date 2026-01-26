@@ -294,8 +294,8 @@
     <div class="container">
         <header>
             <h1>📊 SharePoint & Viva Content Analysis</h1>
-            <p>Interactive Dashboard - 174 Priority Pages (Filtered)</p>
-            <p style="font-size: 0.9em; margin-top: 10px;">Viva Connections + SharePoint Home/News/Start | January 2026</p>
+            <p>Interactive Dashboard - 174 Priority Pages</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Viva Connections • SharePoint News • SharePoint Start | January 2026</p>
         </header>
 
         <div class="stats-grid">
@@ -544,111 +544,93 @@
             const owners = getPageOwners();
             const statuses = getPageStatuses();
 
-            // Calculate overall progress statistics
-            const totalPages = 50;
-            const notStartedCount = trafficData.filter(p => (statuses[p.rank] || 'Not Started') === 'Not Started').length;
-            const inProgressCount = trafficData.filter(p => statuses[p.rank] === 'In Progress').length;
-            const completedCount = trafficData.filter(p => statuses[p.rank] === 'Completed').length;
-            const wontDoCount = trafficData.filter(p => statuses[p.rank] === "Won't Do").length;
-            const completionRate = ((completedCount / totalPages) * 100).toFixed(1);
+            // Segment pages by category
+            const vivaPages = allPagesData.filter(p => p.category === 'Viva Connections');
+            const newsPages = allPagesData.filter(p => p.category === 'SharePoint News');
+            const startPages = allPagesData.filter(p => p.category === 'SharePoint Start');
 
-            // Define all phases with their page ranges
-            const phases = [
+            // Calculate coverage for each category
+            const vivaTraffic = vivaPages.reduce((sum, p) => sum + p.impressions, 0);
+            const newsTraffic = newsPages.reduce((sum, p) => sum + p.impressions, 0);
+            const startTraffic = startPages.reduce((sum, p) => sum + p.impressions, 0);
+            const totalTraffic = vivaTraffic + newsTraffic + startTraffic;
+
+            // Define category-based sections
+            const categories = [
                 {
-                    title: 'Phase 1: Top 6 Pages (70% Traffic)',
-                    pages: allPagesData.slice(0, 6),
-                    coverage: '70',
-                    color: '#7cb342',
-                    pageRange: '1-6'
+                    title: 'Viva Connections',
+                    subtitle: `${vivaPages.length} pages • ${(vivaTraffic/1000000).toFixed(1)}M views • ${(vivaTraffic/totalTraffic*100).toFixed(0)}% of traffic`,
+                    pages: vivaPages,
+                    color: '#7cb342'
                 },
                 {
-                    title: 'Phase 2: Pages 7-25 (89% Traffic)',
-                    pages: allPagesData.slice(6, 25),
-                    coverage: '89',
-                    color: '#fb8c00',
-                    pageRange: '7-25'
+                    title: 'SharePoint News',
+                    subtitle: `${newsPages.length} pages • ${(newsTraffic/1000000).toFixed(1)}M views • ${(newsTraffic/totalTraffic*100).toFixed(0)}% of traffic`,
+                    pages: newsPages,
+                    color: '#fb8c00'
                 },
                 {
-                    title: 'Phase 3: Pages 26-50 (97% Traffic)',
-                    pages: allPagesData.slice(25, 50),
-                    coverage: '97',
-                    color: '#e91e63',
-                    pageRange: '26-50'
-                },
-                {
-                    title: 'Phase 4: Pages 51-139 (99.9% Traffic)',
-                    pages: allPagesData.slice(50, 139),
-                    coverage: '99.9',
-                    color: '#9c27b0',
-                    pageRange: '51-139'
-                },
-                {
-                    title: 'Phase 5: Pages 140-174 (100% Complete)',
-                    pages: allPagesData.slice(139),
-                    coverage: '100',
-                    color: '#607d8b',
-                    pageRange: '140-' + allPagesData.length
+                    title: 'SharePoint Start',
+                    subtitle: `${startPages.length} pages • ${(startTraffic/1000000).toFixed(1)}M views • ${(startTraffic/totalTraffic*100).toFixed(0)}% of traffic`,
+                    pages: startPages,
+                    color: '#e91e63'
                 }
             ];
 
-            const renderPhaseSection = (phase, index) => {
-                // All phases now have detailed pages
-                const phasePages = phase.pages;
-                const traffic = phasePages.reduce((sum, p) => sum + p.impressions, 0);
-                const phaseCompleted = phasePages.filter(p => statuses[p.rank] === 'Completed').length;
-                const phaseInProgress = phasePages.filter(p => statuses[p.rank] === 'In Progress').length;
-                const phaseNotStarted = phasePages.filter(p => (statuses[p.rank] || 'Not Started') === 'Not Started').length;
-                const phaseWontDo = phasePages.filter(p => statuses[p.rank] === "Won't Do").length;
-                const phaseCompletionRate = ((phaseCompleted / phasePages.length) * 100).toFixed(1);
-                const phaseId = 'phase-' + index;
+            const renderCategorySection = (category, index) => {
+                const categoryPages = category.pages;
+                const traffic = categoryPages.reduce((sum, p) => sum + p.impressions, 0);
+                const categoryCompleted = categoryPages.filter(p => statuses[p.rank] === 'Completed').length;
+                const categoryInProgress = categoryPages.filter(p => statuses[p.rank] === 'In Progress').length;
+                const categoryNotStarted = categoryPages.filter(p => (statuses[p.rank] || 'Not Started') === 'Not Started').length;
+                const categoryWontDo = categoryPages.filter(p => statuses[p.rank] === "Won't Do").length;
+                const categoryCompletionRate = ((categoryCompleted / categoryPages.length) * 100).toFixed(1);
+                const categoryId = 'category-' + index;
 
                 return `
-                    <div class="chart-container" style="border-left: 6px solid ${phase.color};">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <h3 style="color: ${phase.color}; margin: 0;">${phase.title}</h3>
+                    <div class="chart-container" style="border-left: 6px solid ${category.color};">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <h3 style="color: ${category.color}; margin: 0;">${category.title}</h3>
                             <button
-                                onclick="togglePhase('${phaseId}')"
-                                style="padding: 8px 16px; background: ${phase.color}; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; transition: opacity 0.3s;"
+                                onclick="togglePhase('${categoryId}')"
+                                style="padding: 8px 16px; background: ${category.color}; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; transition: opacity 0.3s;"
                                 onmouseover="this.style.opacity='0.8'"
                                 onmouseout="this.style.opacity='1'"
-                                id="${phaseId}-btn"
+                                id="${categoryId}-btn"
                             >
                                 ▼ Expand
                             </button>
                         </div>
+                        <p style="font-size: 0.95em; color: #666; margin-bottom: 20px;">${category.subtitle}</p>
 
-                        <div id="${phaseId}" style="display: none;">
+                        <div id="${categoryId}" style="display: none;">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-bottom: 25px;">
-                            <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
+                            <div style="background: linear-gradient(135deg, ${category.color}15 0%, ${category.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${category.color};">
                                 <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Pages</div>
-                                <div style="font-size: 2em; font-weight: bold; color: ${phase.color};">${phasePages.length}</div>
+                                <div style="font-size: 2em; font-weight: bold; color: ${category.color};">${categoryPages.length}</div>
                             </div>
-                            <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
-                                <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Coverage</div>
-                                <div style="font-size: 2em; font-weight: bold; color: ${phase.color};">${phase.coverage}%</div>
-                            </div>
-                            <div style="background: linear-gradient(135deg, ${phase.color}15 0%, ${phase.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${phase.color};">
+                            <div style="background: linear-gradient(135deg, ${category.color}15 0%, ${category.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${category.color};">
                                 <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Views</div>
-                                <div style="font-size: 2em; font-weight: bold; color: ${phase.color};">${(traffic / 1000000).toFixed(1)}M</div>
+                                <div style="font-size: 2em; font-weight: bold; color: ${category.color};">${(traffic / 1000000).toFixed(1)}M</div>
                             </div>
                             <div style="background: #27ae6015; padding: 15px; border-radius: 8px; border: 2px solid #27ae60;">
                                 <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">✅ Done</div>
-                                <div style="font-size: 2em; font-weight: bold; color: #27ae60;">${phaseCompleted}</div>
+                                <div style="font-size: 2em; font-weight: bold; color: #27ae60;">${categoryCompleted}</div>
                             </div>
                             <div style="background: #3498db15; padding: 15px; border-radius: 8px; border: 2px solid #3498db;">
                                 <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">🔄 Progress</div>
-                                <div style="font-size: 2em; font-weight: bold; color: #3498db;">${phaseInProgress}</div>
+                                <div style="font-size: 2em; font-weight: bold; color: #3498db;">${categoryInProgress}</div>
                             </div>
                             <div style="background: #95a5a615; padding: 15px; border-radius: 8px; border: 2px solid #95a5a6;">
                                 <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">⏳ Not Started</div>
-                                <div style="font-size: 2em; font-weight: bold; color: #95a5a6;">${phaseNotStarted}</div>
+                                <div style="font-size: 2em; font-weight: bold; color: #95a5a6;">${categoryNotStarted}</div>
                             </div>
                         </div>
 
                         <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
-                            <strong>Phase Completion:</strong> ${phaseCompletionRate}%
+                            <strong>Completion:</strong> ${categoryCompletionRate}%
                             <div style="margin-top: 8px; background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
-                                <div style="width: ${phaseCompletionRate}%; height: 100%; background: linear-gradient(90deg, #27ae60, #2ecc71);"></div>
+                                <div style="width: ${categoryCompletionRate}%; height: 100%; background: linear-gradient(90deg, #27ae60, #2ecc71);"></div>
                             </div>
                         </div>
 
@@ -665,7 +647,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                ${phasePages.map(page => {
+                                ${categoryPages.map(page => {
                                     const currentOwner = owners[page.rank] || '';
                                     const currentStatus = statuses[page.rank] || 'Not Started';
                                     return `
@@ -708,10 +690,10 @@
             return `
                 <div class="view-header">
                     <h2>🎯 Execution Plan</h2>
-                    <p>All phases with owner assignment and progress tracking</p>
+                    <p>Segmented by category with owner assignment and progress tracking</p>
                 </div>
 
-                ${phases.map((phase, index) => renderPhaseSection(phase, index)).join('')}
+                ${categories.map((category, index) => renderCategorySection(category, index)).join('')}
             `;
         }
 
