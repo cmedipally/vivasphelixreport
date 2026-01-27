@@ -595,29 +595,6 @@
                         <p style="font-size: 0.95em; color: #666; margin-bottom: 20px;">${category.subtitle}</p>
 
                         <div id="${categoryId}" style="display: none;">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-bottom: 25px;">
-                            <div style="background: linear-gradient(135deg, ${category.color}15 0%, ${category.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${category.color};">
-                                <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Pages</div>
-                                <div style="font-size: 2em; font-weight: bold; color: ${category.color};">${categoryPages.length}</div>
-                            </div>
-                            <div style="background: linear-gradient(135deg, ${category.color}15 0%, ${category.color}05 100%); padding: 15px; border-radius: 8px; border: 2px solid ${category.color};">
-                                <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">Views</div>
-                                <div style="font-size: 2em; font-weight: bold; color: ${category.color};">${(traffic / 1000000).toFixed(1)}M</div>
-                            </div>
-                            <div style="background: #27ae6015; padding: 15px; border-radius: 8px; border: 2px solid #27ae60;">
-                                <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">✅ Done</div>
-                                <div style="font-size: 2em; font-weight: bold; color: #27ae60;">${categoryCompleted}</div>
-                            </div>
-                            <div style="background: #3498db15; padding: 15px; border-radius: 8px; border: 2px solid #3498db;">
-                                <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">🔄 Progress</div>
-                                <div style="font-size: 2em; font-weight: bold; color: #3498db;">${categoryInProgress}</div>
-                            </div>
-                            <div style="background: #95a5a615; padding: 15px; border-radius: 8px; border: 2px solid #95a5a6;">
-                                <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">⏳ Not Started</div>
-                                <div style="font-size: 2em; font-weight: bold; color: #95a5a6;">${categoryNotStarted}</div>
-                            </div>
-                        </div>
-
                         <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
                             <strong>Completion:</strong> ${categoryCompletionRate}%
                             <div style="margin-top: 8px; background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
