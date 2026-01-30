@@ -535,16 +535,18 @@
             const owners = getPageOwners();
             const statuses = getPageStatuses();
 
-            // Segment pages by category
-            const vivaPages = allPagesData.filter(p => p.category === 'Viva Connections');
-            const newsPages = allPagesData.filter(p => p.category === 'SharePoint News');
-            const startPages = allPagesData.filter(p => p.category === 'SharePoint Start');
+            // Segment pages by category and sort each by traffic (descending)
+            const vivaPages = allPagesData.filter(p => p.category === 'Viva Connections').sort((a, b) => b.impressions - a.impressions);
+            const homePages = allPagesData.filter(p => p.category === 'SharePoint Home').sort((a, b) => b.impressions - a.impressions);
+            const startPages = allPagesData.filter(p => p.category === 'SharePoint Start').sort((a, b) => b.impressions - a.impressions);
+            const newsPages = allPagesData.filter(p => p.category === 'SharePoint News').sort((a, b) => b.impressions - a.impressions);
 
             // Calculate coverage for each category
             const vivaTraffic = vivaPages.reduce((sum, p) => sum + p.impressions, 0);
-            const newsTraffic = newsPages.reduce((sum, p) => sum + p.impressions, 0);
+            const homeTraffic = homePages.reduce((sum, p) => sum + p.impressions, 0);
             const startTraffic = startPages.reduce((sum, p) => sum + p.impressions, 0);
-            const totalTraffic = vivaTraffic + newsTraffic + startTraffic;
+            const newsTraffic = newsPages.reduce((sum, p) => sum + p.impressions, 0);
+            const totalTraffic = vivaTraffic + homeTraffic + startTraffic + newsTraffic;
 
             // Define category-based sections
             const categories = [
@@ -555,16 +557,22 @@
                     color: '#7cb342'
                 },
                 {
-                    title: 'SharePoint News',
-                    subtitle: `${newsPages.length} pages • ${(newsTraffic/1000000).toFixed(1)}M views • ${(newsTraffic/totalTraffic*100).toFixed(0)}% of traffic`,
-                    pages: newsPages,
-                    color: '#fb8c00'
+                    title: 'SharePoint Home',
+                    subtitle: `${homePages.length} pages • ${(homeTraffic/1000000).toFixed(1)}M views • ${(homeTraffic/totalTraffic*100).toFixed(0)}% of traffic`,
+                    pages: homePages,
+                    color: '#5e35b1'
                 },
                 {
                     title: 'SharePoint Start',
                     subtitle: `${startPages.length} pages • ${(startTraffic/1000000).toFixed(1)}M views • ${(startTraffic/totalTraffic*100).toFixed(0)}% of traffic`,
                     pages: startPages,
                     color: '#e91e63'
+                },
+                {
+                    title: 'SharePoint News',
+                    subtitle: `${newsPages.length} pages • ${(newsTraffic/1000000).toFixed(1)}M views • ${(newsTraffic/totalTraffic*100).toFixed(0)}% of traffic`,
+                    pages: newsPages,
+                    color: '#fb8c00'
                 }
             ];
 
